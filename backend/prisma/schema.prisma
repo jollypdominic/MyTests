@@ -1,0 +1,155 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          String    @id @default(uuid())
+  username    String    @unique
+  email       String    @unique
+  role        Role
+  employeeId  String?   @unique @map("employee_id")
+  employee    Employee? @relation(fields: [employeeId], references: [id])
+  isActive    Boolean   @default(true) @map("is_active")
+  lastLogin   DateTime? @map("last_login")
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+  
+  reports     Report[]
+  auditLogs   AuditLog[]
+
+  @@map("users")
+}
+
+model Employee {
+  id                String            @id @default(uuid())
+  employeeId        String            @unique @map("employee_id")
+  firstName         String            @map("first_name")
+  lastName          String            @map("last_name")
+  email             String            @unique
+  department        String
+  location          String
+  managerId         String?           @map("manager_id")
+  manager           Employee?         @relation("ManagerSubordinates", fields: [managerId], references: [id])
+  subordinates      Employee[]        @relation("ManagerSubordinates")
+  jobTitle          String            @map("job_title")
+  costCenter        String            @map("cost_center")
+  salaryBand        String            @map("salary_band")
+  performanceRating String?           @map("performance_rating")
+  joinDate          DateTime          @map("join_date")
+  employmentStatus  EmploymentStatus  @map("employment_status")
+  skills            Json?
+  certifications    Json?
+  createdAt         DateTime          @default(now()) @map("created_at")
+  updatedAt         DateTime          @updatedAt @map("updated_at")
+  
+  user              User?
+  allocations       Allocation[]
+  ownedProjects     Project[]
+
+  @@index([department])
+  @@index([location])
+  @@index([managerId])
+  @@index([employmentStatus])
+  @@map("employees")
+}
+
+model Project {
+  id          String        @id @default(uuid())
+  projectCode String        @unique @map("project_code")
+  projectName String        @map("project_name")
+  description String?
+  startDate   DateTime      @map("start_date")
+  endDate     DateTime?     @map("end_date")
+  status      ProjectStatus
+  location    String
+  ownerId     String        @map("owner_id")
+  owner       Employee      @relation(fields: [ownerId], references: [id])
+  createdAt   DateTime      @default(now()) @map("created_at")
+  updatedAt   DateTime      @updatedAt @map("updated_at")
+  
+  allocations Allocation[]
+
+  @@index([status])
+  @@index([ownerId])
+  @@map("projects")
+}
+
+model Allocation {
+  id                    String   @id @default(uuid())
+  employeeId            String   @map("employee_id")
+  employee              Employee @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+  projectId             String   @map("project_id")
+  project               Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  allocationPercentage  Decimal  @map("allocation_percentage") @db.Decimal(5, 2)
+  effectiveFrom         DateTime @map("effective_from")
+  effectiveTo           DateTime? @map("effective_to")
+  isActive              Boolean  @default(true) @map("is_active")
+  createdBy             String   @map("created_by")
+  createdAt             DateTime @default(now()) @map("created_at")
+  updatedAt             DateTime @updatedAt @map("updated_at")
+
+  @@index([employeeId])
+  @@index([projectId])
+  @@index([isActive])
+  @@index([effectiveFrom])
+  @@map("allocations")
+}
+
+model Report {
+  id            String   @id @default(uuid())
+  reportName    String   @map("report_name")
+  reportType    String   @map("report_type")
+  configuration Json
+  schedule      Json?
+  createdBy     String   @map("created_by")
+  creator       User     @relation(fields: [createdBy], references: [id])
+  isActive      Boolean  @default(true) @map("is_active")
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
+
+  @@index([createdBy])
+  @@map("reports")
+}
+
+model AuditLog {
+  id         String   @id @default(uuid())
+  userId     String   @map("user_id")
+  user       User     @relation(fields: [userId], references: [id])
+  action     String
+  entityType String   @map("entity_type")
+  entityId   String   @map("entity_id")
+  oldValues  Json?    @map("old_values")
+  newValues  Json?    @map("new_values")
+  ipAddress  String?  @map("ip_address")
+  timestamp  DateTime @default(now())
+
+  @@index([userId])
+  @@index([entityType, entityId])
+  @@index([timestamp])
+  @@map("audit_logs")
+}
+
+enum Role {
+  ADMIN
+  HR
+  MANAGER
+  EMPLOYEE
+}
+
+enum EmploymentStatus {
+  ACTIVE
+  INACTIVE
+  ON_LEAVE
+}
+
+enum ProjectStatus {
+  ACTIVE
+  COMPLETED
+  ON_HOLD
+  CANCELLED
+}
