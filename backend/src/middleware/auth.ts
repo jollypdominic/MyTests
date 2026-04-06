@@ -1,12 +1,13 @@
-import { Request, Response, NextFunction } from 'express';
-import jwt from 'jsonwebtoken';
+import { Request, Response, NextFunction, RequestHandler } from 'express';
+import * as jwt from 'jsonwebtoken';
 import prisma from '../config/database';
+import { Role } from '@prisma/client';
 
 export interface AuthRequest extends Request {
   user?: {
     id: string;
     username: string;
-    role: string;
+    role: Role;
     employeeId?: string;
   };
 }
@@ -52,7 +53,12 @@ export const authenticate = async (
       return;
     }
 
-    req.user = user;
+    req.user = {
+      id: user.id,
+      username: user.username,
+      role: user.role,
+      employeeId: user.employeeId ?? undefined,
+    };
     next();
   } catch (error) {
     if (error instanceof jwt.JsonWebTokenError) {
@@ -67,15 +73,15 @@ export const authenticate = async (
  * Middleware to authorize requests based on user roles
  * @param roles - Array of allowed roles
  */
-export const authorize = (...roles: string[]) => {
-  return (req: AuthRequest, res: Response, next: NextFunction): void => {
+export const authorize = (...roles: string[]): RequestHandler => {
+  return ((req: AuthRequest, res: Response, next: NextFunction): void => {
     if (!req.user) {
       res.status(401).json({ error: 'Not authenticated' });
       return;
     }
 
     if (!roles.includes(req.user.role)) {
-      res.status(403).json({ 
+      res.status(403).json({
         error: 'Insufficient permissions',
         required: roles,
         current: req.user.role
@@ -84,7 +90,7 @@ export const authorize = (...roles: string[]) => {
     }
 
     next();
-  };
+  }) as RequestHandler;
 };
 
 /**

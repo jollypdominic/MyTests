@@ -305,9 +305,9 @@ export const getEmployeeAllocations = async (req: AuthRequest, res: Response): P
     });
 
     // Calculate total allocation percentage
-    const activeAllocations = allocations.filter(a => a.isActive);
+    const activeAllocations = allocations.filter((a: any) => a.isActive);
     const totalAllocation = activeAllocations.reduce(
-      (sum, a) => sum + Number(a.allocationPercentage),
+      (sum: number, a: any) => sum + Number(a.allocationPercentage),
       0
     );
 
