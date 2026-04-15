@@ -1,7 +1,6 @@
 import { Response } from 'express';
 import { AuthRequest } from '../middleware/auth';
 import prisma from '../config/database';
-import { Prisma } from '@prisma/client';
 
 /**
  * Get all projects with filtering and pagination
@@ -16,7 +15,7 @@ export const getProjects = async (req: AuthRequest, res: Response): Promise<void
       limit = '20' 
     } = req.query;
     
-    const where: Prisma.ProjectWhereInput = {};
+    const where: any = {};
     
     // Apply filters
     if (status) where.status = status as any;
@@ -126,9 +125,9 @@ export const getProjectById = async (req: AuthRequest, res: Response): Promise<v
     }
 
     // Calculate total allocation
-    const activeAllocations = project.allocations.filter(a => a.isActive);
+    const activeAllocations = project.allocations.filter((a: any) => a.isActive);
     const totalAllocation = activeAllocations.reduce(
-      (sum, a) => sum + Number(a.allocationPercentage),
+      (sum: number, a: any) => sum + Number(a.allocationPercentage),
       0
     );
 
@@ -314,7 +313,7 @@ export const getProjectTeam = async (req: AuthRequest, res: Response): Promise<v
     });
 
     const totalAllocation = allocations.reduce(
-      (sum, a) => sum + Number(a.allocationPercentage),
+      (sum: number, a: any) => sum + Number(a.allocationPercentage),
       0
     );
 

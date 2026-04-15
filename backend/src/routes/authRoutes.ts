@@ -1,6 +1,6 @@
-import { Router } from 'express';
-import jwt from 'jsonwebtoken';
-import { authenticate } from '../middleware/auth';
+import { Router, Response, NextFunction } from 'express';
+import * as jwt from 'jsonwebtoken';
+import { authenticate, AuthRequest } from '../middleware/auth';
 import prisma from '../config/database';
 
 const router = Router();
@@ -47,7 +47,7 @@ router.post('/login', async (req, res) => {
         role: user.role,
       },
       process.env.JWT_SECRET!,
-      { expiresIn: process.env.JWT_EXPIRES_IN || '24h' }
+      { expiresIn: '24h' }
     );
 
     // Update last login
@@ -75,7 +75,7 @@ router.post('/login', async (req, res) => {
 /**
  * Logout endpoint
  */
-router.post('/logout', authenticate, async (req, res) => {
+router.post('/logout', authenticate, async (req: AuthRequest, res: Response, next: NextFunction) => {
   try {
     // In a production system, you might want to blacklist the token
     res.json({ message: 'Logged out successfully' });
@@ -88,10 +88,10 @@ router.post('/logout', authenticate, async (req, res) => {
 /**
  * Get current user info
  */
-router.get('/me', authenticate, async (req, res) => {
+router.get('/me', authenticate, async (req: AuthRequest, res: Response, next: NextFunction) => {
   try {
     const user = await prisma.user.findUnique({
-      where: { id: (req as any).user.id },
+      where: { id: req.user!.id },
       include: {
         employee: {
           select: {
@@ -129,9 +129,9 @@ router.get('/me', authenticate, async (req, res) => {
 /**
  * Refresh token endpoint
  */
-router.post('/refresh', authenticate, async (req, res) => {
+router.post('/refresh', authenticate, async (req: AuthRequest, res: Response, next: NextFunction) => {
   try {
-    const user = (req as any).user;
+    const user = req.user!;
 
     // Generate new token
     const token = jwt.sign(
@@ -141,7 +141,7 @@ router.post('/refresh', authenticate, async (req, res) => {
         role: user.role,
       },
       process.env.JWT_SECRET!,
-      { expiresIn: process.env.JWT_EXPIRES_IN || '24h' }
+      { expiresIn: '24h' }
     );
 
     res.json({ token });

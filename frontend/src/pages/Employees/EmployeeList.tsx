@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { Link } from 'react-router-dom';
-import { Plus, Search, Filter } from 'lucide-react';
+import { Plus, Search } from 'lucide-react';
 import { api } from '@/lib/api';
 import { formatDate, getStatusColor } from '@/lib/utils';
 import type { Employee } from '@/types';

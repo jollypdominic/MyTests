@@ -14,28 +14,28 @@ import { auditLog } from '../middleware/auditLog';
 const router = Router();
 
 // All routes require authentication
-router.use(authenticate);
+router.use(authenticate as any);
 
 // Get all employees (with role-based filtering)
-router.get('/', getEmployees);
+router.get('/', getEmployees as any);
 
 // Get employee by ID (with access control)
-router.get('/:id', canAccessEmployee, getEmployeeById);
+router.get('/:id', canAccessEmployee as any, getEmployeeById as any);
 
 // Get employee allocations
-router.get('/:id/allocations', canAccessEmployee, getEmployeeAllocations);
+router.get('/:id/allocations', canAccessEmployee as any, getEmployeeAllocations as any);
 
 // Get employee change history
-router.get('/:id/history', canAccessEmployee, authorize('ADMIN', 'HR'), getEmployeeHistory);
+router.get('/:id/history', canAccessEmployee as any, authorize('ADMIN', 'HR'), getEmployeeHistory as any);
 
 // Create employee (HR and Admin only)
-router.post('/', authorize('ADMIN', 'HR'), auditLog('employee'), createEmployee);
+router.post('/', authorize('ADMIN', 'HR'), auditLog('employee'), createEmployee as any);
 
 // Update employee (HR, Admin, and Managers for their team)
-router.put('/:id', canAccessEmployee, auditLog('employee'), updateEmployee);
+router.put('/:id', canAccessEmployee as any, auditLog('employee'), updateEmployee as any);
 
 // Delete employee (HR and Admin only)
-router.delete('/:id', authorize('ADMIN', 'HR'), auditLog('employee'), deleteEmployee);
+router.delete('/:id', authorize('ADMIN', 'HR'), auditLog('employee'), deleteEmployee as any);
 
 export default router;
 
