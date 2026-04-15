@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VPC Storage SRE - Issues Summary Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 30px;
+            background: #f8f9fa;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+        }
+        
+        .stat-number {
+            font-size: 3em;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 1.1em;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .issue-category {
+            margin-bottom: 40px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        
+        .issue-category:hover {
+            border-color: #667eea;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+        }
+        
+        .category-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 30px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .category-header h2 {
+            font-size: 1.5em;
+        }
+        
+        .category-count {
+            background: rgba(255,255,255,0.3);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        
+        .category-content {
+            padding: 30px;
+            background: white;
+        }
+        
+        .section {
+            margin-bottom: 25px;
+        }
+        
+        .section h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        .section-content {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .cause-item, .recommendation-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .cause-item strong, .recommendation-item strong {
+            color: #d32f2f;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .recommendation-item strong {
+            color: #2e7d32;
+        }
+        
+        .icon {
+            margin-right: 10px;
+        }
+        
+        ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .severity-critical { border-left-color: #d32f2f; }
+        .severity-high { border-left-color: #f57c00; }
+        .severity-medium { border-left-color: #fbc02d; }
+        .severity-low { border-left-color: #388e3c; }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+            }
+            .issue-category {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔍 VPC Storage SRE - Issues Analysis Dashboard</h1>
+            <p>Comprehensive Root Cause Analysis & Prevention Strategies</p>
+        </div>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">635</div>
+                <div class="stat-label">Total Issues</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">13</div>
+                <div class="stat-label">Issue Categories</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Open Issues</div>
+            </div>
+        </div>
+        
+        <div class="content">
+            
+            <!-- Ceph Health Issues -->
+            <div class="issue-category severity-critical">
+                <div class="category-header">
+                    <h2>🔴 Ceph Health Issues</h2>
+                    <span class="category-count">116 issues (18.3%)</span>
+                </div>
+                <div class="category-content">
+                    <div class="section">
+                        <h3>🔍 Root Causes</h3>
+                        <div class="section-content">
+                            <div class="cause-item">
+                                <strong>1. OSD Failures & Slow Operations</strong>
+                                <p>OSDs going down due to hardware failures, network issues, or resource exhaustion causing slow operations and degraded cluster performance.</p>
+                            </div>
+                            <div class="cause-item">
+                                <strong>2. Monitor Clock Skew (MON_CLOCK_SKEW)</strong>
+                                <p>Time synchronization issues between Ceph monitor nodes leading to quorum problems and cluster instability.</p>
+                            </div>
+                            <div class="cause-item">
+                                <strong>3. Network Heartbeat Delays</strong>
+                                <p>Public and cluster network delays causing OSD heartbeat failures, often due to network congestion or hardware issues.</p>
+                            </div>
+                            <div class="cause-item">
+                                <strong>4. PG Availability Issues</strong>
+                                <p>Placement group availability problems due to insufficient OSDs, replication failures, or cluster rebalancing.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>✅ Prevention & Recommendations</h3>
+                        <div class="section-content">
+                            <div class="recommendation-item">
+                                <strong>1. Implement Proactive Monitoring</strong>
+                                <ul>
+                                    <li>Set up automated health checks for OSD status every 5 minutes</li>
+                                    <li>Monitor disk SMART data and predict failures before they occur</li>
+                                    <li>Implement alerting for slow ops threshold (>30s)</li>
+                                    <li>Track network latency metrics continuously</li>
+                                </ul>
+                            </div>
+                            <div class="recommendation-item">
+                                <strong>2. Time Synchronization</strong>
+                                <ul>
+                                    <li>Deploy NTP/Chrony on all Ceph nodes with redundant time sources</li>
+                                    <li>Set strict clock drift thresholds (max 50ms)</li>
+                                    <li>Monitor time sync status in real-time</li>
+                                </ul>
+                            </div>
+                            <div class="recommendation-item">
+                                <strong>3. Network Optimization</strong>
+                                <ul>
+                                    <li>Separate public and cluster networks with dedicated NICs</li>
+                                    <li>Implement QoS policies for Ceph traffic</li>
+                                    <li>Use jumbo frames (MTU 9000) for cluster network</li>
+                                    <li>Regular network performance testing</li>
+                                </ul>
+                            </div>
+                            <div class="recommendation-item">
+                                <strong>4. Capacity Planning</strong>
+                                <ul>
+                                    <li>Maintain at least 30% free capacity in clusters</li>
+                                    <li>Plan OSD additions before reaching 70% utilization</li>
+                                    <li>Implement automated rebalancing during maintenance windows</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Storage Volume Issues -->
+            <div class="issue-category severity-high">
+                <div class="category-header">
+                    <h2>🟠 Storage Volume Issues</h2>
+                    <span class="category-count">96 issues (15.1%)</span>
+                </div>
+                <div class="category-content">
+                    <div class="section">
+                        <h3>🔍 Root Causes</h3>
+                        <div class="section-content">
+                            <div class="cause-item">
+                                <strong>1. Volumes Stuck in Pending State</strong>
+                                <p>Volumes failing to provision due to backend storage unavailability, quota limits, or API timeouts.</p>
+                            </div>
+                            <div class="cause-item">
+                                <strong>2. RSOS Volume Locked</strong>
+                                <p>Volumes locked due to ongoing snapshot operations (zsnap_block_commit) preventing deletion or modification.</p>
+                            </div>
+                            <div class="cause-item">
+                                <strong>3. Volume Action Failures</strong>
+                                <p>High percentage of volume action errors due to Ceph backend issues, network problems, or resource constraints.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>✅ Prevention & Recommendations</h3>
+                        <div class="section-content">
+                            <div class="recommendation-item">
+                                <strong>1. Implement Timeout & Retry Logic</strong>
+                                <ul>
+                                    <li>Set appropriate timeouts for volume operations (5-10 minutes)</li>
+                                    <li>Implement exponential backoff retry mechanism</li>
+                                    <li>Add circuit breakers for failing backends</li>
+                                    <li>Implement automatic cleanup of stuck volumes after timeout</li>
+                                </ul>
+                            </div>
+                            <div class="recommendation-item">
+                                <strong>2. Snapshot Lock Management</strong>
+                                <ul>
+                                    <li>Implement lock timeout mechanisms (max 30 minutes)</li>
+                                    <li>Add automated lock cleanup for orphaned operations</li>
+                                    <li>Queue snapshot operations to prevent conflicts</li>
+                                    <li>Monitor lock duration and alert on anomalies</li>
+                                </ul>
+                            </div>
+                            <div class="recommendation-item">
+                                <strong>3. Backend Health Checks</strong>
+                                <ul>
+                                    <li>Verify Ceph cluster health before volume operations</li>
+                                    <li>Implement pre-flight checks for available capacity</li>
+                                    <li>Add health-based routing to healthy backends</li>
+                                    <li>Maintain backup storage pools for failover</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pod/Container Issues -->
+            <div class="issue-category severity-high">
+                <div class="category-header">
+                    <h2>🟡 Pod/Container Issues</h2>
+                    <span class="category-count">59 issues (9.3%)</span>
+                </div>
+                <div class="category-content">
+                    <div class="section">
+                        <h3>🔍 Root Causes</h3>
+                        <div class="section-content">
+                            <div class="cause-item">
+                                <strong>1. CrashLoopBackOff</strong>
+                                <p>Pods repeatedly crashing due to application errors, missing dependencies, configuration issues, or resource constraints.</p>
+                            </div>
+                            <div class="cause-item">
+                                <strong>2. Out of Memory (OOM) Kills</strong>
+                                <p>Pods exceeding memory limits causing OOM kills, often due to memory leaks or insufficient resource allocation.</p>
+                            </div>
+                            <div class="cause-item">
+                                <strong>3. Storage-Agent Pods Not Ready</strong>
+                                <p>Storage agent pods failing health checks due to backend connectivity issues or initialization failures.</p>
+                            </div>
+                            <div class="cause-item">
+                                <strong>4. High CPU/Memory Usage</strong>
+                                <p>Pods consuming excessive resources due to inefficient code, traffic spikes, or resource contention.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>✅ Prevention & Recommendations</h3>
+                        <div class="section-content">
+                            <div class="recommendation-item">
+                                <strong>1. Resource Management</strong>
+                                <ul>
+                                    <li>Set appropriate resource requests and limits based on profiling</li>
+                                    <li>Implement Horizontal Pod Autoscaling (HPA) for traffic spikes</li>
+                                    <li>Use Vertical Pod Autoscaling (VPA) for right-sizing</li>
+                                    <li>Reserve 20% overhead for memory limits</li>
+                                </ul>
+                            </div>
+                            <div class="recommendation-item">
+                                <strong>2. Health Check Optimization</strong>
+                                <ul>
+                                    <li>Increase initialDelaySeconds for slow-starting pods (60-120s)</li>
+                                    <li>Set appropriate failureThreshold (3-5 attempts)</li>
+                                    <li>Implement proper readiness and liveness probes</li>
+                                    <li>Add startup probes for legacy applications</li>
+                                </ul>
+                            </div>
+                            <div class="recommendation-item">
+                                <strong>3. Application Improvements</strong>
+                                <ul>
+                                    <li>Implement graceful shutdown handlers</li>
+                                    <li>Add memory leak detection and monitoring</li>
+                                    <li>Use connection pooling for database/API calls</li>
+                                    <li>Implement circuit breakers for external dependencies</li>
+                                </ul>
+                            </div>
+                            <div class="recommendation-item">
+                                <strong>4. Monitoring & Alerting</strong>
+                                <ul>
+                                    <li>Set up alerts for pod restart rates (>3 in 10 minutes)</li>
+                                    <li>Monitor memory usage trends to predict OOM</li>
+                                    <li>Track pod startup times and alert on degradation</li>
+                                    <li>Implement log aggregation for crash analysis</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Snapshot Issues -->
+            <div class="issue-category severity-high">
+                <div class="category-header">
+                    <h2>📸 Snapshot Issues</h2>
+                    <span class="category-count">75 issues (11.8%)</span>
+                </div>
+                <div class="category-content">
+                    <div class="section">
+                        <h3>🔍 Root Causes</h3>
+                        <div class="section-content">
+                            <div class="cause-item">
+                                <strong>1. Blockcommit Failures</strong>
+                                <p>Snapshot blockcommit operations failing during compute actions due to libvirt issues, disk space, or I/O errors.</p>
+                            </div>
+                            <div class="cause-item">
+                                <strong>2. Snapshot Limit Reached</strong>
+                                <p>Customers hitting snapshot quota limits preventing new snapshots from being created.</p>
+                            </div>
+                            <div class="cause-item">
+                                <strong>3. Transfer Failures</strong>
+                                <p>Snapshot transfers failing between regions or to COS due to network issues or storage backend problems.</p>
+                            </div>
+                            <div class="cause-item">
+                                <strong>4. LibvirtSnapshotFailed</strong>
+                                <p>Libvirt snapshot operations failing due to VM state issues, disk format problems, or resource constraints.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>✅ Prevention & Recommendations</h3>
+                        <div class="section-content">
+                            <div class="recommendation-item">
+                                <strong>1. Snapshot Lifecycle Management</strong>
+                                <ul>
+                                    <li>Implement automated snapshot cleanup policies</li>
+                                    <li>Set retention policies based on age and count</li>
+                                    <li>Warn users approaching quota limits (80% threshold)</li>
+                                    <li>Provide self-service snapshot management tools</li>
+                                </ul>
+                            </div>
+                            <div class="recommendation-item">
+                                <strong>2. Blockcommit Optimization</strong>
+                                <ul>
+                                    <li>Schedule blockcommit operations during low-traffic periods</li>
+                                    <li>Implement rate limiting for concurrent operations</li>
+                                    <li>Add pre-flight checks for disk space (min 20% free)</li>
+                                    <li>Monitor and alert on long-running blockcommits (>30 min)</li>
+                                </ul>
+                            </div>
+                            <div class="recommendation-item">
+                                <strong>3. Transfer Reliability</strong>
+                                <ul>
+                                    <li>Implement chunked transfers with resume capability</li>
+                                    <li>Add checksums for transfer integrity verification</li>
+                                    <li>Use dedicated network paths for snapshot transfers</li>
+                                    <li>Implement automatic retry with exponential backoff</li>
+                                </ul>
+                            </div>
+                            <div class="recommendation-item">
+                                <strong>4. Libvirt Integration</strong>
+                                <ul>
+                                    <li>Validate VM state before snapshot operations</li>
+                                    <li>Ensure qemu-guest-agent is running for consistent snapshots</li>
+                                    <li>Implement timeout mechanisms (max 10 minutes)</li>
+                                    <li>Add fallback to crash-consistent snapshots if needed</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Backup Issues -->
+            <div class="issue-category severity-medium">
+                <div class="category-header">
+                    <h2>💾 Backup Issues</h2>
+                    <span class="category-count">36 issues (5.7%)</span>
+                </div>
+                <div class="category-content">
+                    <div class="section">
+                        <h3>🔍 Root Causes</h3>
+                        <div class="section-content">
+                            <div class="cause-item">
+                                <strong>1. Backup Cronjob Delays</strong>
+                                <p>Scheduled backup jobs delayed or failing to execute due to resource constraints or scheduling conflicts.</p>
+                            </div>
+                            <div class="cause-item">
+                                <strong>2. Snapshot Quota Exceeded</strong>
+                                <p>Backup failures due to snapshot quota limits being reached.</p>
+                            </div>
+                            <div class="cause-item">
+                                <strong>3. Source Volume Issues</strong>
+                                <p>Backup failures due to source volume being busy, unusable, or in incorrect state.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>✅ Prevention & Recommendations</h3>
+                        <div class="section-content">
+                            <div class="recommendation-item">
+                                <strong>1. Backup Scheduling</strong>
+                                <ul>
+                                    <li>Distribute backup jobs across time windows to avoid resource contention</li>
+                                    <li>Implement priority-based scheduling for critical backups</li>
+                                    <li>Add jitter to cronjob schedules to prevent thundering herd</li>
+                                    <li>Monitor backup completion rates and adjust schedules</li>
+                                </ul>
+                            </div>
+                            <div class="recommendation-item">
+                                <strong>2. Quota Management</strong>
+                                <ul>
+                                    <li>Implement automated cleanup of old backup snapshots</li>
+                                    <li>Set appropriate retention policies (e.g., 7 daily, 4 weekly, 12 monthly)</li>
+                                    <li>Alert when approaching quota limits (80% threshold)</li>
+                                    <li>Provide quota increase automation for approved requests</li>
+                                </ul>
+                            </div>
+                            <div class="recommendation-item">
+                                <strong>3. Backup Reliability</strong>
+                                <ul>
+                                    <li>Implement retry logic with exponential backoff</li>
+                                    <li>Add pre-backup validation checks</li>
+                                    <li>Use application-consistent backups where possible</li>
+                                    <li>Verify backup integrity after completion</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Network Issues -->
+            <div class="issue-category severity-high">
+                <div class="category-header">
+                    <h2>🌐 Network Issues</h2>
+                    <span class="category-count">13 issues (2.0%)</span>
+                </div>
+                <div class="category-content">
+                    <div class="section">
+                        <h3>🔍 Root Causes</h3>
+                        <div class="section-content">
+                            <div class="cause-item">
+                                <strong>1. Network Interface Missing</strong>
+                                <p>Acadia nodes missing network interfaces due to hardware failures, driver issues, or configuration problems.</p>
+                            </div>
+                            <div class="cause-item">
+                                <strong>2. Nginx 5xx Errors</strong>
+                                <p>Nginx ingress controllers returning 5xx errors due to backend unavailability or timeout issues.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>✅ Prevention & Recommendations</h3>
+                        <div class="section-content">
+                            <div class="recommendation-item">
+                                <strong>1. Network Monitoring</strong>
+                                <ul>
+                                    <li>Implement automated NIC detection and alerting</li>
+                                    <li>Monitor interface status every minute</li>
+                                    <li>Add automatic interface recovery scripts</li>
+                                    <li>Maintain redundant network paths</li>
+                                </ul>
+                            </div>
+                            <div class="recommendation-item">
+                                <strong>2. Ingress Optimization</strong>
+                                <ul>
+                                    <li>Increase nginx timeout values (60s for proxy_read_timeout)</li>
+                                    <li>Implement proper health checks for backends</li>
+                                    <li>Add circuit breakers for failing backends</li>
+                                    <li>Use connection pooling and keep-alive</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Share/File Storage Issues -->
+            <div class="issue-category severity-medium">
+                <div class="category-header">
+                    <h2>📁 Share/File Storage Issues</h2>
+                    <span class="category-count">25 issues (3.9%)</span>
+                </div>
+                <div class="category-content">
+                    <div class="section">
+                        <h3>🔍 Root Causes</h3>
+                        <div class="section-content">
+                            <div class="cause-item">
+                                <strong>1. Share Provisioning Failures</strong>
+                                <p>File shares failing to provision or reach stable state due to backend issues or orchestration failures.</p>
+                            </div>
+                            <div class="cause-item">
+                                <strong>2. Mount Failures</strong>
+                                <p>NFS mount operations failing due to network issues, DNS resolution problems, or NFS server unavailability.</p>
+                            </div>
+                            <div class="cause-item">
+                                <strong>3. Share Deletion Failures</strong>
+                                <p>Shares failing to delete due to active mounts, backend issues, or orphaned resources.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>✅ Prevention & Recommendations</h3>
+                        <div class="section-content">
+                            <div class="recommendation-item">
+                                <strong>1. Provisioning Reliability</strong>
+                                <ul>
+                                    <li>Implement idempotent provisioning operations</li>
+                                    <li>Add timeout mechanisms (10 minutes for provisioning)</li>
+                                    <li>Verify backend health before provisioning</li>
+                                    <li>Implement automatic rollback on failures</li>
+                                </ul>
+                            </div>
+                            <div class="recommendation-item">
+                                <strong>2. Mount Optimization</strong>
+                                <ul>
+                                    <li>Use DNS caching to prevent resolution delays</li>
+                                    <li>Implement mount retry logic with backoff</li>
+                                    <li>Add mount timeout parameters (soft,timeo=600)</li>
+                                    <li>Monitor NFS server health continuously</li>
+                                </ul>
+                            </div>
+                            <div class="recommendation-item">
+                                <strong>3. Cleanup Automation</strong>
+                                <ul>
+                                    <li>Implement automated cleanup of orphaned shares</li>
+                                    <li>Force unmount stale mounts before deletion</li>
+                                    <li>Add grace periods for active mount detection</li>
+                                    <li>Maintain audit logs for deletion operations</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cluster Capacity Issues -->
+            <div class="issue-category severity-high">
+                <div class="category-header">
+                    <h2>📊 Cluster Capacity Issues</h2>
+                    <span class="category-count">17 issues (2.7%)</span>
+                </div>
+                <div class="category-content">
+                    <div class="section">
+                        <h3>🔍 Root Causes</h3>
+                        <div class="section-content">
+                            <div class="cause-item">
+                                <strong>1. Cluster Capacity Exceeded</strong>
+                                <p>Clusters exceeding 60-80% capacity leading to performance degradation and provisioning failures.</p>
+                            </div>
+                            <div class="cause-item">
+                                <strong>2. Storage Pool Offline</strong>
+                                <p>Storage pools going offline due to backend failures or maintenance activities.</p>
+                            </div>
+                            <div class="cause-item">
+                                <strong>3. Overprovisioning</strong>
+                                <p>Clusters exceeding overprovisioning thresholds causing resource allocation issues.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>✅ Prevention & Recommendations</h3>
+                        <div class="section-content">
+                            <div class="recommendation-item">
+                                <strong>1. Capacity Planning</strong>
+                                <ul>
+                                    <li>Implement automated capacity forecasting based on growth trends</li>
+                                    <li>Alert at 60% capacity to trigger expansion planning</li>
+                                    <li>Maintain 30% free capacity as buffer</li>
+                                    <li>Plan capacity additions 3-6 months in advance</li>
+                                </ul>
+                            </div>
+                            <div class="recommendation-item">
+                                <strong>2. Load Balancing</strong>
+                                <ul>
+                                    <li>Distribute workloads across multiple clusters</li>
+                                    <li>Implement intelligent placement based on capacity</li>
+                                    <li>Use storage tiering for hot/cold data</li>
+                                    <li>Migrate workloads from overloaded clusters</li>
+                                </ul>
+                            </div>
+                            <div class="recommendation-item">
+                                <strong>3. Pool Management</strong>
+                                <ul>
+                                    <li>Implement redundant storage pools for failover</li>
+                                    <li>Schedule maintenance during low-traffic windows</li>
+                                    <li>Add automated pool health checks</li>
+                                    <li>Maintain hot spare capacity (10-15%)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Latency/Performance Issues -->
+            <div class="issue-category severity-medium">
+                <div class="category-header">
+                    <h2>⚡ Latency/Performance Issues</h2>
+                    <span class="category-count">26 issues (4.1%)</span>
+                </div>
+                <div class="category-content">
+                    <div class="section">
+                        <h3>🔍 Root Causes</h3>
+                        <div class="section-content">
+                            <div class="cause-item">
+                                <strong>1. Increased Provisioning Latency</strong>
+                                <p>Share and volume provisioning operations taking longer than expected due to backend load or resource contention.</p>
+                            </div>
+                            <div class="cause-item">
+                                <strong>2. High Resource Utilization</strong>
+                                <p>Nodes experiencing high CPU, memory, or disk utilization causing performance degradation.</p>
+                            </div>
+                            <div class="cause-item">
+                                <strong>3. Slow Attach Operations</strong>
+                                <p>Volume attach operations experiencing latency due to backend issues or network delays.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>✅ Prevention & Recommendations</h3>
+                        <div class="section-content">
+                            <div class="recommendation-item">
+                                <strong>1. Performance Monitoring</strong>
+                                <ul>
+                                    <li>Track P50, P95, P99 latency metrics for all operations</li>
+                                    <li>Set SLO targets (e.g., P95 < 30s for provisioning)</li>
+                                    <li>Alert on latency degradation (>20% increase)</li>
+                                    <li>Implement distributed tracing for operation flows</li>
+                                </ul>
+                            </div>
+                            <div class="recommendation-item">
+                                <strong>2. Resource Optimization</strong>
+                                <ul>
+                                    <li>Implement auto-scaling for compute resources</li>
+                                    <li>Use caching for frequently accessed data</li>
+                                    <li>Optimize database queries and indexes</li>
+                                    <li>Implement connection pooling</li>
+                                </ul>
+                            </div>
+                            <div class="recommendation-item">
+                                <strong>3. Backend Optimization</strong>
+                                <ul>
+                                    <li>Use SSD-backed storage for metadata operations</li>
+                                    <li>Implement read/write caching</li>
+                                    <li>Optimize Ceph pool configurations</li>
+                                    <li>Use dedicated networks for storage traffic</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Encryption/Security Issues -->
+            <div class="issue-category severity-high">
+                <div class="category-header">
+                    <h2>🔐 Encryption/Security Issues</h2>
+                    <span class="category-count">16 issues (2.5%)</span>
+                </div>
+                <div class="category-content">
+                    <div class="section">
+                        <h3>🔍 Root Causes</h3>
+                        <div class="section-content">
+                            <div class="cause-item">
+                                <strong>1. Keylore Request Failures</strong>
+                                <p>Encryption key requests failing due to Key Protect service issues or network connectivity problems.</p>
+                            </div>
+                            <div class="cause-item">
+                                <strong>2. Vault Agent Failures</strong>
+                                <p>Vault agent pods failing or becoming sealed, preventing access to secrets and encryption keys.</p>
+                            </div>
+                            <div class="cause-item">
+                                <strong>3. KMIP Pod Unavailability</strong>
+                                <p>KMIP (Key Management Interoperability Protocol) pods becoming unavailable affecting encryption operations.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>✅ Prevention & Recommendations</h3>
+                        <div class="section-content">
+                            <div class="recommendation-item">
+                                <strong>1. Key Management Reliability</strong>
+                                <ul>
+                                    <li>Implement key caching with appropriate TTL (5-15 minutes)</li>
+                                    <li>Deploy redundant Key Protect instances across regions</li>
+                                    <li>Add retry logic with exponential backoff for key requests</li>
+                                    <li>Monitor key request latency and success rates</li>
+                                </ul>
+                            </div>
+                            <div class="recommendation-item">
+                                <strong>2. Vault High Availability</strong>
+                                <ul>
+                                    <li>Deploy Vault in HA mode with auto-unseal</li>
+                                    <li>Implement automated Vault health checks</li>
+                                    <li>Set up monitoring for seal status</li>
+                                    <li>Maintain backup unseal keys in secure locations</li>
+                                </ul>
+                            </div>
+                            <div class="recommendation-item">
+                                <strong>3. KMIP Resilience</strong>
+                                <ul>
+                                    <li>Deploy KMIP pods with anti-affinity rules</li>
+                                    <li>Implement automatic pod recovery</li>
+                                    <li>Add health checks and readiness probes</li>
+                                    <li>Maintain minimum 3 replicas for quorum</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hydrate/COS Issues -->
+            <div class="issue-category severity-medium">
+                <div class="category-header">
+                    <h2>☁️ Hydrate/COS Issues</h2>
+                    <span class="category-count">20 issues (3.1%)</span>
+                </div>
+                <div class="category-content">
+                    <div class="section">
+                        <h3>🔍 Root Causes</h3>
+                        <div class="section-content">
+                            <div class="cause-item">
+                                <strong>1. Hydrate COS Action Failures</strong>
+                                <p>Operations to hydrate data from Cloud Object Storage failing due to network issues, authentication problems, or COS service unavailability.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>✅ Prevention & Recommendations</h3>
+                        <div class="section-content">
+                            <div class="recommendation-item">
+                                <strong>1. COS Integration Reliability</strong>
+                                <ul>
+                                    <li>Implement retry logic with exponential backoff (max 5 retries)</li>
+                                    <li>Use regional COS endpoints for better performance</li>
+                                    <li>Implement chunked downloads with resume capability</li>
+                                    <li>Add timeout mechanisms (30 minutes for large objects)</li>
+                                </ul>
+                            </div>
+                            <div class="recommendation-item">
+                                <strong>2. Authentication Management</strong>
+                                <ul>
+                                    <li>Implement token refresh before expiration</li>
+                                    <li>Use service-to-service authentication</li>
+                                    <li>Monitor authentication success rates</li>
+                                    <li>Maintain backup credentials</li>
+                                </ul>
+                            </div>
+                            <div class="recommendation-item">
+                                <strong>3. Performance Optimization</strong>
+                                <ul>
+                                    <li>Use parallel downloads for large objects</li>
+                                    <li>Implement caching for frequently accessed objects</li>
+                                    <li>Monitor COS latency and throughput</li>
+                                    <li>Use direct endpoints to avoid proxy overhead</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Synthetic Provisioning Issues -->
+            <div class="issue-category severity-low">
+                <div class="category-header">
+                    <h2>🧪 Synthetic Provisioning Issues</h2>
+                    <span class="category-count">13 issues (2.0%)</span>
+                </div>
+                <div class="category-content">
+                    <div class="section">
+                        <h3>🔍 Root Causes</h3>
+                        <div class="section-content">
+                            <div class="cause-item">
+                                <strong>1. Synthetic Test Failures</strong>
+                                <p>Automated synthetic provisioning tests failing due to backend issues, timeouts, or configuration problems.</p>
+                            </div>
+                            <div class="cause-item">
+                                <strong>2. Build Failures</strong>
+                                <p>No successful builds in last 3 attempts causing cronjob to be disabled.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>✅ Prevention & Recommendations</h3>
+                        <div class="section-content">
+                            <div class="recommendation-item">
+                                <strong>1. Test Reliability</strong>
+                                <ul>
+                                    <li>Implement test retry logic (3 attempts)</li>
+                                    <li>Add pre-test environment validation</li>
+                                    <li>Use dedicated test resources to avoid contention</li>
+                                    <li>Implement automatic test recovery</li>
+                                </ul>
+                            </div>
+                            <div class="recommendation-item">
+                                <strong>2. Monitoring & Alerting</strong>
+                                <ul>
+                                    <li>Alert on 2 consecutive test failures</li>
+                                    <li>Track test success rate trends</li>
+                                    <li>Implement automatic re-enablement after fixes</li>
+                                    <li>Maintain test result history for analysis</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    <script>
+        // Add interactivity if needed
+        document.querySelectorAll('.category-header').forEach(header => {
+            header.addEventListener('click', function() {
+                const content = this.nextElementSibling;
+                content.style.display = content.style.display === 'none' ? 'block' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>
