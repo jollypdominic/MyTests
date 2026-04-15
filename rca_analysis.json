@@ -1,0 +1,2586 @@
+{
+  "total_issues": 635,
+  "categories": {
+    "Cluster Capacity Issues": [
+      {
+        "number": "1792",
+        "title": "RCA | mzone766 | INC11169750 - Cluster exceeded 80% of the overprovisioning percentage mzone766"
+      },
+      {
+        "number": "1748",
+        "title": "RCA | WDC mzonep75 | cluster capacity is more than 60 percent"
+      },
+      {
+        "number": "1747",
+        "title": "RCA | US-SOUTH-STAGE-NGDC,mzoneb61 | Storage pool is offline"
+      },
+      {
+        "number": "1745",
+        "title": "RCA |  US-SOUTH-STAGE-NGDC | Storage pool is offline"
+      },
+      {
+        "number": "1743",
+        "title": "RCA | DAL10 mzonep11 | cluster capacity is more than 60 percent"
+      },
+      {
+        "number": "1729",
+        "title": "RCA | DAL mzonep11 | cluster capacity is more than 60 percent"
+      },
+      {
+        "number": "1671",
+        "title": "RCA | DAL mzonep32 | cluster capacity is more than 60 percent"
+      },
+      {
+        "number": "1661",
+        "title": "RCA | DAL mzonep22  | cluster capacity is more than 60 percent"
+      },
+      {
+        "number": "1637",
+        "title": "RCA | DAL mzonep32 cluster capacity is more than 60 percent"
+      },
+      {
+        "number": "1536",
+        "title": "RCA | FRA - mzonepc1 | cluster capacity is more than 60 percent"
+      },
+      {
+        "number": "1528",
+        "title": "RCA | FRA - mzonepc1 | cluster capacity is more than 60 percent"
+      },
+      {
+        "number": "1491",
+        "title": "RCA | WDC mzonep52 | cluster capacity is more than 60 percent"
+      },
+      {
+        "number": "794",
+        "title": "RCA | WDC mzone777 | cluster exceeded 80% of the overprovisioning percentage"
+      },
+      {
+        "number": "583",
+        "title": "RCA | DAL , .... | Storage pool offline"
+      },
+      {
+        "number": "533",
+        "title": "RCA | US_SOUTH_STAGE mzoneb11 | Storage pool is offline"
+      },
+      {
+        "number": "522",
+        "title": "RCA | TOK mzone2e7 mzone2f7 mzone2g7 | Storage pool is offline"
+      },
+      {
+        "number": "446",
+        "title": "RCA | OSA mzone2o7 , mzone2n7, mzone2p7 | Storage pool is offline"
+      }
+    ],
+    "Backup Issues": [
+      {
+        "number": "1791",
+        "title": "CIE: RCA |  BNPP_EU REGION.... | [stg-backup-sysdig-004] Backup service cronjob delayed"
+      },
+      {
+        "number": "1740",
+        "title": "RCA | IN-CHE | [stg-backup-sysdig-004] Backup service cronjob delayed"
+      },
+      {
+        "number": "1739",
+        "title": "RCA | DAL NGDC Staging | [stg-backup-sysdig-004] Backup service cronjob delayed"
+      },
+      {
+        "number": "1724",
+        "title": "RCA | BNPP | [stg-backup-icl-013] Instance backup job action failure"
+      },
+      {
+        "number": "1685",
+        "title": "RCA | BNPP | [stg-backup-icl-015] Instance backup job action failure"
+      },
+      {
+        "number": "1665",
+        "title": "RCA | IBM Yellow Staging | Backup service cronjob delayed"
+      },
+      {
+        "number": "1656",
+        "title": "RCA | BNPP | Instance backup job action failure"
+      },
+      {
+        "number": "1629",
+        "title": "RCA | BNPP INC11001929 - [stg-backup-icl-013] Instance backup job action failure"
+      },
+      {
+        "number": "1627",
+        "title": "RCA | BNPP INC11001932 - [stg-backup-icl-015] Instance backup job action failure - source volume is busy"
+      },
+      {
+        "number": "1616",
+        "title": "RCA | ca-mon|  Backup service cronjob delayed"
+      },
+      {
+        "number": "1611",
+        "title": "RCA | BNPP [stg-backup-icl-013] Instance backup job action failure"
+      },
+      {
+        "number": "1574",
+        "title": "RCA | eu-es mad04 | Instance backup job action failure"
+      },
+      {
+        "number": "1557",
+        "title": "RCA | DAL NGDC Staging | [stg-backup-sysdig-004] Backup service cronjob delayed"
+      },
+      {
+        "number": "1555",
+        "title": "RCA | FRA  |   Backup job action failure - snapshots_quota_exceeded"
+      },
+      {
+        "number": "1551",
+        "title": "RCA | FRA | Backup job action failure - snapshots_quota_exceeded"
+      },
+      {
+        "number": "1514",
+        "title": "RCA | FRA | [stg-backup-icl-050] Backup job action failure - snapshots_quota_exceeded"
+      },
+      {
+        "number": "1466",
+        "title": "RCA | tor | Backup service cronjob delayed"
+      },
+      {
+        "number": "1400",
+        "title": "RCA | TOR  | Backup job action failure"
+      },
+      {
+        "number": "1350",
+        "title": "RCA | MAD mzone2y7   | [stg-backup-icl-013] Instance backup job action failure"
+      },
+      {
+        "number": "1340",
+        "title": "RCA | PAR BNPP [stg-backup-icl-030] Vault agent api failure"
+      },
+      {
+        "number": "1267",
+        "title": "RCA | WDC - wdc06 | [stg-backup-icl-010] Backup job action failure"
+      },
+      {
+        "number": "1260",
+        "title": "RCA | FRA , fra04 | [stg-backup-icl-014] Instance backup job action failure - service_error"
+      },
+      {
+        "number": "1177",
+        "title": "RCA | BNPP | [stg-backup-icl-014] Instance backup job action failure - service_error"
+      },
+      {
+        "number": "1149",
+        "title": "RCA | FRA  [stg-backup-icl-014] Instance backup job action failure - service_error"
+      },
+      {
+        "number": "982",
+        "title": "RCA | MON  | [stg-backup-icl-030] Vault agent api failure"
+      },
+      {
+        "number": "927",
+        "title": "RCA | BNPP | [stg-backup-icl-013] Instance backup job action failure"
+      },
+      {
+        "number": "759",
+        "title": "RCA | SYD | [stg-backup-icl-053] Backup job action failure - source_snapshot_state"
+      },
+      {
+        "number": "745",
+        "title": "RCA | SYD | Backup job action failure - source_snapshot_state"
+      },
+      {
+        "number": "708",
+        "title": "RCA | MAD, WDC, DAL  |  [stg-backup-icl-041] Backup job action failure - source_volume_unusable"
+      },
+      {
+        "number": "675",
+        "title": "RCA | TOK  | Backup job action failure - source_snapshot_state"
+      },
+      {
+        "number": "673",
+        "title": "RCA |  TORONTO ca-tor  | Backup service cronjob delayed"
+      },
+      {
+        "number": "672",
+        "title": "RCA | TOK  | Backup job action failure - source_snapshot_state"
+      },
+      {
+        "number": "663",
+        "title": "RCA | LON | Backup service cronjob delayed"
+      },
+      {
+        "number": "563",
+        "title": "RCA | MAD | [stg-backup-icl-013] Instance backup job action failure"
+      },
+      {
+        "number": "427",
+        "title": "RCA | DAL staging | Backup service cronjob delayed"
+      },
+      {
+        "number": "411",
+        "title": "RCA | SYD rias-ng-au-syd-syd04-prod | [stg-backup-icl-010] Backup job action failure"
+      }
+    ],
+    "Storage Volume Issues": [
+      {
+        "number": "1790",
+        "title": "RCA | WDC Staging mzone766  |  Storage volume action error pending"
+      },
+      {
+        "number": "1787",
+        "title": "RCA | IBM Yellow Staging 1 (YS1) STAGING - mzone716 | Storage volume action error failed percent"
+      },
+      {
+        "number": "1776",
+        "title": "RCA | DAL Staging| Storage volume action error failed percent"
+      },
+      {
+        "number": "1736",
+        "title": "RCA | WDC mzone767 | Storage volume action error failed percent"
+      },
+      {
+        "number": "1728",
+        "title": "RCA | DAL mzone727 | Storage volume action error failed percent"
+      },
+      {
+        "number": "1723",
+        "title": "RCA | WDC mzone767 | Observed event for Volume is stuck in pending state"
+      },
+      {
+        "number": "1714",
+        "title": "RCA | WDC rias-ng-us-east-wdc06-prod | Observed event for Volume is stuck in pending state"
+      },
+      {
+        "number": "1709",
+        "title": "RCA | MAD, WDC, TOK, FRA | Observed event for Volume is stuck in pending state"
+      },
+      {
+        "number": "1699",
+        "title": "RCA | DAL Prod | Observed Event for Regional Volume Failed"
+      },
+      {
+        "number": "1698",
+        "title": "RCA | DAL mzone747 | Observed event for Volume is stuck in pending state"
+      },
+      {
+        "number": "1697",
+        "title": "RCA | WDC mzone757 | Observed event for Volume is stuck in pending state"
+      },
+      {
+        "number": "1696",
+        "title": "RCA | OSA mzone2n7 | Observed Event for Regional Volume Failed"
+      },
+      {
+        "number": "1684",
+        "title": "RCA | FRA | Observed event for Volume is stuck in pending state"
+      },
+      {
+        "number": "1677",
+        "title": "RCA | FRA mzone2b7 | Observed event for Volume is stuck in pending state"
+      },
+      {
+        "number": "1669",
+        "title": "RCA | MUMBAI_Airtel| Observed event for Volume is stuck in pending state"
+      },
+      {
+        "number": "1625",
+        "title": "RCA | TOR Storage volume action error failed percent"
+      },
+      {
+        "number": "1624",
+        "title": "RCA | Montreal (ca-mon)  |  Share deletion failure Zonal & Share volume deletion failure & Share noretry failed"
+      },
+      {
+        "number": "1623",
+        "title": "RCA | TOR PROD  | Storage volume action error failed percent"
+      },
+      {
+        "number": "1619",
+        "title": "RCA | DAL  | Observed Event for Regional Volume Failed"
+      },
+      {
+        "number": "1612",
+        "title": "RCA | BNPP RSOS Volume Locked due to snapshot"
+      },
+      {
+        "number": "1606",
+        "title": "RCA | SYD - mzone2i7 | Storage volume action error failed percent"
+      },
+      {
+        "number": "1600",
+        "title": "RCA | DAL Staging us-south-2 | Observed event for regional volume failed"
+      },
+      {
+        "number": "1597",
+        "title": "RCA | WDC rias-ng-us-east-wdc07-prod | RSOS Volume Locked due to snapshot"
+      },
+      {
+        "number": "1577",
+        "title": "RCA |  mzone2x7 MADRID| RSOS Volume Locked due to zsnap_block_commit"
+      },
+      {
+        "number": "1575",
+        "title": "RCA | mad02 | RSOS Volume Locked due to zsnap_block_commit"
+      },
+      {
+        "number": "1558",
+        "title": "RCA | DAL Staging| Storage volume action error failed percent"
+      },
+      {
+        "number": "1522",
+        "title": "RCA | madrid mzone2x7 | RSOS Volume Locked due to zsnap_block_commit"
+      },
+      {
+        "number": "1519",
+        "title": "RCA | WDC |  Storagevolume_failed_in_lock_acadia_snapshot_controller_wdc"
+      },
+      {
+        "number": "1517",
+        "title": "RCA | SYD mzone2i7 | RSOS Volume Locked due to snapshot"
+      },
+      {
+        "number": "1506",
+        "title": "RCA | WDC mzone757 | Observed event for Volume is stuck in pending state"
+      },
+      {
+        "number": "1482",
+        "title": "RCA | WDC04. | Observed event for Volume is stuck in pending state"
+      },
+      {
+        "number": "1481",
+        "title": "RCA | DAL mzone737 | RSOS Volume Locked due to snapshot"
+      },
+      {
+        "number": "1473",
+        "title": "RCA | CHE che-3| RSOS Volume Locked due to zsnap_block_commit"
+      },
+      {
+        "number": "1443",
+        "title": "RCA | DAL mzone727 | RSOS Volume locked due to snapshot"
+      },
+      {
+        "number": "1441",
+        "title": "RCA | CA-tor | mzone736 | ICL view keylore_request_failure_acadia_agent & Storage volume action error failed percent |"
+      },
+      {
+        "number": "1416",
+        "title": "RCA | PAR |  Observed event for storagevolume deletion failed"
+      },
+      {
+        "number": "1377",
+        "title": "RCA | NGDC CHE| RSOS Volume Locked due to zsnap_block_commit"
+      },
+      {
+        "number": "1359",
+        "title": "RCA | BNPP mzone2l7  | RSOS Volume Locked due to snapshot"
+      },
+      {
+        "number": "1358",
+        "title": "RCA | DAL mzone727  | RSOS Volume Locked due to snapshot"
+      },
+      {
+        "number": "1357",
+        "title": "RCA | DAL mzone736 | Observed Event for Regional Volume Failed"
+      },
+      {
+        "number": "1349",
+        "title": "RCA | mzone2y7  | RSOS Volume Locked due to zsnap_block_commit"
+      },
+      {
+        "number": "1341",
+        "title": "RCA | DAL | RSOS Volume Locked due to snapshot"
+      },
+      {
+        "number": "1338",
+        "title": "RCA | SYD 2i7 | Storage volume action error failed percent"
+      },
+      {
+        "number": "1331",
+        "title": "RCA | CHE | RSOS Volume Locked due to zsnap_block_commit"
+      },
+      {
+        "number": "1330",
+        "title": "RCA | STAGING mzone716 Storage volume action error failed percent [US-SOUTH-STAGE]"
+      },
+      {
+        "number": "1325",
+        "title": "RCA | DAL-STAGING Observed Event for Regional Volume Failed"
+      },
+      {
+        "number": "1324",
+        "title": "RCA | DAL-STAGING  Alert got triggered for the ICL view Storagevolume_failed_in_lock_acadia_snapshot_controller_ca-tor-"
+      },
+      {
+        "number": "1303",
+        "title": "RCA |  DAL STAGING  | INC10717120 Observed Event for Regional Volume Failed"
+      },
+      {
+        "number": "1296",
+        "title": "RCA | FRA 2b7 | RSOS Volume Locked due to snapshot"
+      },
+      {
+        "number": "1278",
+        "title": "RCA | DAL Staging | Observed Event for Regional Volume Failed"
+      },
+      {
+        "number": "1234",
+        "title": "RCA | Dal mzone737| RSOS Volume Locked due to snapshot"
+      },
+      {
+        "number": "1229",
+        "title": "RCA | TOR, 2q7 | Observed Event for Regional Volume Failed"
+      },
+      {
+        "number": "1225",
+        "title": "RCA | Chennai , zone1 | RSOS Volume Locked due to snapshot"
+      },
+      {
+        "number": "1214",
+        "title": "RCA | PAR06 mzone2m7  | RSOS Volume Locked due to zsnap_block_commit"
+      },
+      {
+        "number": "1180",
+        "title": "RCA | SYD. | RSOS Volume Locked due to snapshot"
+      },
+      {
+        "number": "1174",
+        "title": "RCA |SYD  | RSOS Volume Locked due to snapshot"
+      },
+      {
+        "number": "1167",
+        "title": "RCA | CHENNAI | RSOS Volume Locked due to snapshot"
+      },
+      {
+        "number": "1160",
+        "title": "RCA | LON mzone7a7 | Alert got triggered for the ICL view Storagevolume_failed_in_lock_acadia_snapshot_controller_eu-gb"
+      },
+      {
+        "number": "1139",
+        "title": "RCA | FRA mzone2c7 | RSOS Volume Locked due to zsnap_block_commit"
+      },
+      {
+        "number": "1127",
+        "title": "RCA | Chennai | RSOS Volume Locked due to zsnap_block_commit"
+      },
+      {
+        "number": "1121",
+        "title": "RCA | FRA rias-ng-eu-de-fra04-prod | RSOS Volume locked due to Snapshot"
+      },
+      {
+        "number": "1079",
+        "title": "RCA | SYD - Mzone2i7 | Storage volume action error failed percent"
+      },
+      {
+        "number": "1069",
+        "title": "RCA | LON, 7a7 | Storagevolume_failed_in_lock_acadia_snapshot_controller_eu-gb"
+      },
+      {
+        "number": "1059",
+        "title": "RCA | Chennai | RSOS Volume Locked due to snapshot"
+      },
+      {
+        "number": "1057",
+        "title": "RCA | WDC  767 | Storage volume action error failed percent"
+      },
+      {
+        "number": "1047",
+        "title": "RCA | FRA 2b7 | Observed event for storagevolume deletion failed"
+      },
+      {
+        "number": "1019",
+        "title": "RCA | NGDC CHE zone-3 | RSOS Volume Locked due to zsnap_block_commit"
+      },
+      {
+        "number": "1014",
+        "title": "RCA | mzone7a7  | Alert got triggered for the ICL view Storagevolume_failed_in_lock_acadia_snapshot_controller_eu-gb"
+      },
+      {
+        "number": "987",
+        "title": "RCA | SAO | Regional volume failed"
+      },
+      {
+        "number": "975",
+        "title": "RCA | syd mzone2i7 |  [Acadia-SRE]-Storage volume action error failed percent [SYD]"
+      },
+      {
+        "number": "967",
+        "title": "RCA | ca-tor | Observed Event for Regional Volume Failed"
+      },
+      {
+        "number": "960",
+        "title": "RCA | Sydney mzone2i7| Storage volume action error failed percent"
+      },
+      {
+        "number": "935",
+        "title": "RCA | LON rias-ng-eu-gb-lon05-prod | RSOS Volume locked due to snapshot"
+      },
+      {
+        "number": "929",
+        "title": "RCA | DAL staging - 716 | Observed Event for Regional Volume Failed"
+      },
+      {
+        "number": "924",
+        "title": "RCA | SAO mzone2t7 | RSOS Volume Locked due to zsnap_block_commit"
+      },
+      {
+        "number": "909",
+        "title": "RCA | DAL, mzone717 | Observed event for storagevolume deletion failed"
+      },
+      {
+        "number": "899",
+        "title": "RCA | SAO, 2t7 | RSOS Volume Locked due to zsnap_block_commit"
+      },
+      {
+        "number": "881",
+        "title": "RCA | WDC mzone 767 |  Storage volume action error failed percent"
+      },
+      {
+        "number": "843",
+        "title": "RCA | DAL-12 US-South Prod | RSOS Volume Locked due to snapshot"
+      },
+      {
+        "number": "838",
+        "title": "RCA | SAO - mzone2u7 |  Observed event for storagevolume deletion failed"
+      },
+      {
+        "number": "834",
+        "title": "RCA | DAL 717 | Observed event for storagevolume deletion failed"
+      },
+      {
+        "number": "827",
+        "title": "RCA | DAL  717 | Storage volume action error failed percent"
+      },
+      {
+        "number": "806",
+        "title": "RCA | WDC mzone767 | Storage volume action error failed percent"
+      },
+      {
+        "number": "803",
+        "title": "RCA | BNPP mzone2k7 | Observed Event for Regional Volume Failed"
+      },
+      {
+        "number": "777",
+        "title": "RCA | MON ca-mon | RSOS Volume Locked due to zsnap_block_commit"
+      },
+      {
+        "number": "775",
+        "title": "RCA | LON | RSOS Volume Locked due to snapshot"
+      },
+      {
+        "number": "758",
+        "title": "RCA | SAO |  br-sao-3 for Observed Event for Regional Volume Failed"
+      },
+      {
+        "number": "755",
+        "title": "RCA | WDC 757 | Storage volume action error failed percent"
+      },
+      {
+        "number": "748",
+        "title": "RCA | OSA jp-osa-2 | Observed Event for Regional Volume Failed"
+      },
+      {
+        "number": "739",
+        "title": "RCA | WDC mzone777 | Storage volume action error failed percent"
+      },
+      {
+        "number": "699",
+        "title": "RCA | BNPP mzone2k7  | RSOS Volume Locked due to snapshot"
+      },
+      {
+        "number": "640",
+        "title": "RCA | [paris] [mzone2k7] | RSOS Volume Locked due to snapshot"
+      },
+      {
+        "number": "516",
+        "title": "RCA | SAO SAO04 | Observed Event for Regional Volume Failed"
+      },
+      {
+        "number": "473",
+        "title": "RCA | SAO Mzone2v7 | Observed Event for Regional Volume Failed"
+      },
+      {
+        "number": "432",
+        "title": "RCA | BNPP 2k7 | Observed Event for Regional Volume Failed"
+      },
+      {
+        "number": "260",
+        "title": "RCA | DAL Staging  mzone726 , | Storagevolume_failed_in_lock_acadia_snapshot_controller_ca-tor-staging_slack_presence"
+      }
+    ],
+    "Latency/Performance Issues": [
+      {
+        "number": "1789",
+        "title": "RCA | WDC PROD | Increased latency for Share Provisioning Operation"
+      },
+      {
+        "number": "1769",
+        "title": "RCA | Washington DC (us-east) rias-ng-us-east-wdc07-prod | Increased latency for Share Provisioning Operation"
+      },
+      {
+        "number": "1759",
+        "title": "RCA | WDC, mzonep72 | Acadia node high memory utilization"
+      },
+      {
+        "number": "1753",
+        "title": "RCA | WDC mzonep72 | Acadia node high memory utilization"
+      },
+      {
+        "number": "1744",
+        "title": "RCA | WDC PROD | Increased latency for Share Delete Operation"
+      },
+      {
+        "number": "1733",
+        "title": "RCA | TOK, mzone2e7| Observed latency in attaching volume"
+      },
+      {
+        "number": "1719",
+        "title": "RCA | WDC | Increased latency for Share Provisioning Operation"
+      },
+      {
+        "number": "1682",
+        "title": "RCA | OSA  | Observed latency in attaching volume."
+      },
+      {
+        "number": "1658",
+        "title": "RCA | BNPP Prod | SAP RISE - Volume Latency Issues"
+      },
+      {
+        "number": "1657",
+        "title": "RCA | SAO regional | Synthetic provisioning failures and latency alerts"
+      },
+      {
+        "number": "1651",
+        "title": "RCA | SYD   | Increased latency for Share Delete Operation"
+      },
+      {
+        "number": "1604",
+        "title": "RCA | LON - lon04 | Increased latency for Share Provisioning Operation"
+      },
+      {
+        "number": "1545",
+        "title": "RCA | DAL | Increased latency for Share Provisioning Operation"
+      },
+      {
+        "number": "1534",
+        "title": "RCA | FRA mzone2d7 | Observed latency in attaching volume"
+      },
+      {
+        "number": "1334",
+        "title": "RCA | LON - lon04 | Increased latency for Share Provisioning Operation"
+      },
+      {
+        "number": "1259",
+        "title": "RCA | FRA 2b7 | Observed latency in attaching volume"
+      },
+      {
+        "number": "1242",
+        "title": "RCA | TOK, mzone | Acadia node memory high utilization"
+      },
+      {
+        "number": "1188",
+        "title": "RCA | DAL mzone717 | Observed latency in attaching volume"
+      },
+      {
+        "number": "1144",
+        "title": "RCA | DAL mzonec11 | Acadia node memory high utilization"
+      },
+      {
+        "number": "1017",
+        "title": "RCA | WDC p62. | CS4404398 - When using block volumes in IKS, we are seeing some disk slowness getting reported in kernel logs"
+      },
+      {
+        "number": "940",
+        "title": "RCA | FRA mzone2c7 | Observed latency in attaching volume"
+      },
+      {
+        "number": "821",
+        "title": "RCA | FRA | Observed Latency Attaching Volume"
+      },
+      {
+        "number": "740",
+        "title": "RCA | DAL mzonec11 | Acadia Node System Saturation"
+      },
+      {
+        "number": "733",
+        "title": "RCA | MAD mzonecw1 | Acadia Node System Saturation"
+      },
+      {
+        "number": "732",
+        "title": "RCA | MAD mzonecw1 | Acadia Node System Saturation"
+      },
+      {
+        "number": "532",
+        "title": "RCA | US_SOUTH-STAGE, mzoneb11 | Acadia Node System Saturation"
+      }
+    ],
+    "Other Issues": [
+      {
+        "number": "1788",
+        "title": "RCA | LON PROD | Observed share orchestration failure for create flow."
+      },
+      {
+        "number": "1782",
+        "title": "RCA | DAL | Multiple regional Snapshot pod restarts"
+      },
+      {
+        "number": "1771",
+        "title": "RCA | DAL staging mzone716 | Storage pool updates are delayed"
+      },
+      {
+        "number": "1752",
+        "title": "RCA | WDC|DAL|OSA | Observed multiple REST-500 Snapshot failures - GET"
+      },
+      {
+        "number": "1746",
+        "title": "RCA |  US-SOUTH-STAGE-NGDC | Storage pool updates are delayed"
+      },
+      {
+        "number": "1734",
+        "title": "RCA | MUM | Smoke Failure for Storage"
+      },
+      {
+        "number": "1725",
+        "title": "RCA | FRA mzone2b7 | Alert got triggered for the ICL view error_deleting_RBD_acadia_action_agent_eu-de"
+      },
+      {
+        "number": "1722",
+        "title": "RCA | us-south-dal10  | Observed initial REST-500 Snapshot failures - DELETE"
+      },
+      {
+        "number": "1713",
+        "title": "RCA | JP-OSA mzone2n7 | ASANP net-block-agent memory utilization above 30G"
+      },
+      {
+        "number": "1708",
+        "title": "RCA | DAL staging | Share did not reach to stable state after waiting for 10 minutes"
+      },
+      {
+        "number": "1688",
+        "title": "RCA | MUM | External client returned 500 for regional file service, Observed Intial REST-500 Share failures"
+      },
+      {
+        "number": "1676",
+        "title": "RCA | TOR mzone2r7  | ASANP net-block-agent memory utilization above 30G"
+      },
+      {
+        "number": "1667",
+        "title": "RCA | DAL staging , s12 | Acadia key provider server not running"
+      },
+      {
+        "number": "1650",
+        "title": "RCA | SYD mzone2h7 | Share replica teardown failure"
+      },
+      {
+        "number": "1647",
+        "title": "RCA | TOR mzone2r7 | ASANP net-block-agent memory utilization above 80%"
+      },
+      {
+        "number": "1644",
+        "title": "RCA | TOR ASANP net-block-agent memory utilization above 80%"
+      },
+      {
+        "number": "1633",
+        "title": "RCA | FRA [stg-backup-icl-022] Backup job failed to list snapshots"
+      },
+      {
+        "number": "1621",
+        "title": "RCA | mzone767 WDC PROD | daemonset pods are not scheduled"
+      },
+      {
+        "number": "1605",
+        "title": "RCA | WDC - Staging | Alert got triggered for the ICL view error_deleting_RBD_acadia_action_agent_us-east-staging"
+      },
+      {
+        "number": "1603",
+        "title": "RCA | FRA, mzone2b7 | error_deleting_RBD_acadia_action_agent_eu-de"
+      },
+      {
+        "number": "1591",
+        "title": "RCA | WDC Staging  |  error_uprotecting_snapshot_acadia_action_agent"
+      },
+      {
+        "number": "1581",
+        "title": "RCA | FRA Alert got triggered for the ICL view error_deleting_RBD_acadia_action_agent_eu-de"
+      },
+      {
+        "number": "1580",
+        "title": "RCA | WDC STAGING Alert got triggered for the ICL view error_deleting_RBD_acadia_action_agent_us-east-staging"
+      },
+      {
+        "number": "1578",
+        "title": "RCA | MUM | External client returned 500 for regional file service"
+      },
+      {
+        "number": "1573",
+        "title": "RCA | us-east-staging  | Alert got triggered for the ICL view error_uprotecting_snapshot_acadia_action_agent_us-east-staging"
+      },
+      {
+        "number": "1570",
+        "title": "RCA | eu-de | Alert got triggered for the ICL view error_deleting_RBD_acadia_action_agent_eu-de"
+      },
+      {
+        "number": "1556",
+        "title": "RCA | DAL NGDC Staging | Observed Intial REST-500 Share failures"
+      },
+      {
+        "number": "1552",
+        "title": "RCA | mzone716 ca-tor | Alert got triggered for the ICL view error_deleting_RBD_acadia_action_agent_ca-tor-staging"
+      },
+      {
+        "number": "1547",
+        "title": "RCA | LON_PROD | Alert got triggered for the ICL view error_uprotecting_snapshot_acadia_action_agent_eu-gb"
+      },
+      {
+        "number": "1527",
+        "title": "RCA | All Prod | snapshot restoration of encrypted Acadia boot volumes are failing"
+      },
+      {
+        "number": "1526",
+        "title": "RCA | WDC - Staging s61 | Ceph Acadia cluster mzones61 have even Monitors"
+      },
+      {
+        "number": "1521",
+        "title": "RCA | dallas mzone717 | daemonset pods are not scheduled"
+      },
+      {
+        "number": "1516",
+        "title": "RCA | Dallas NGDC Test STAGING | External client returned 500 for regional file service"
+      },
+      {
+        "number": "1515",
+        "title": "RCA | DAL Staging | External client returned 500 for regional file service"
+      },
+      {
+        "number": "1501",
+        "title": "RCA | LON mzone7a7 | error_deleting_RBD"
+      },
+      {
+        "number": "1500",
+        "title": "RCA | eu-fr2 |Alert got triggered for the ICL view failed_to_openImage_acadia_agent_eu-fr2"
+      },
+      {
+        "number": "1499",
+        "title": "RCA | FRA | Alert got triggered for the ICL view error_deleting_RBD_acadia_action_agent_eu-de"
+      },
+      {
+        "number": "1498",
+        "title": "RCA | DAL, mzone736 | Alert got triggered for the ICL view error_uprotecting_snapshot_acadia_action_agent_ca-tor-staging"
+      },
+      {
+        "number": "1489",
+        "title": "RCA | mzone757  us-east | Alert got triggered for the ICL view error_uprotecting_snapshot_acadia_action_agent_us-east"
+      },
+      {
+        "number": "1470",
+        "title": "RCA | DAL Stage  | Alert got triggered for the ICL view error_uprotecting_snapshot_acadia_action_agent_ca-tor-staging"
+      },
+      {
+        "number": "1444",
+        "title": "RCA | NGDC Staging | Observed Intial REST-500 Share failures"
+      },
+      {
+        "number": "1397",
+        "title": "RCA | SAO | Internal Server Error"
+      },
+      {
+        "number": "1390",
+        "title": "RCA | WDC mzone2c7 | unexpected libvirt file type for device, expected qcow2"
+      },
+      {
+        "number": "1384",
+        "title": "RCA | CA-MON mzone2 | [stg-backup-icl-005] RC Registration Failed due to unrecoverable error"
+      },
+      {
+        "number": "1362",
+        "title": "RCA | au-syd-1 ZONE | syd1-qz1-sr3-rk086-s28   genctl  cos-action-controller-84c4b874f6-kzrl8   0/2     PodInitializing"
+      },
+      {
+        "number": "1336",
+        "title": "RCA | OSA mzone2n7 Storage pool updates are delayed"
+      },
+      {
+        "number": "1299",
+        "title": "RCA | WDC | Backup service pods restart"
+      },
+      {
+        "number": "1277",
+        "title": "RCA | NGDC Stage |  Observed Intial REST-500 Share failures"
+      },
+      {
+        "number": "1263",
+        "title": "RCA | DAL | Block Commit Failure"
+      },
+      {
+        "number": "1239",
+        "title": "RCA | Chennai , zone 1 | Observed share orchestration failure for create flow."
+      },
+      {
+        "number": "1203",
+        "title": "RCA | DAL 737, FRA 2b7 | CIE - Image imports taking too long to complete"
+      },
+      {
+        "number": "1165",
+        "title": "RCA | DAL Staging  mzoneb11 | Acadia node textfile scrape error"
+      },
+      {
+        "number": "1136",
+        "title": "RCA | NDGC stage mzone Dallas NGDC Test | FlexVol creation on Netapp failure"
+      },
+      {
+        "number": "1134",
+        "title": "RCA | LON mzone7a7 | Alert got triggered for the ICL view timeout_waiting_for_response_from_server_acadia_agent_eu-gb"
+      },
+      {
+        "number": "1133",
+        "title": "RCA | mzone736 | High CPU Usage"
+      },
+      {
+        "number": "1126",
+        "title": "RCA | Chennai | Observed share orchestration failure for create flow"
+      },
+      {
+        "number": "1122",
+        "title": "RCA | SYD |  CSTASK0055326 Endpoint timeout during tags and updating backup size"
+      },
+      {
+        "number": "1115",
+        "title": "RCA | Sao Paulo | Share replica teardown failure"
+      },
+      {
+        "number": "1073",
+        "title": "RCA | WDC - 777 | zonal_image_image_notFound_acadia_zonalimage_controller"
+      },
+      {
+        "number": "1070",
+        "title": "RCA | DAL Staging Mzone 726/736 | action_agent_err_disconnect_qcow2_acadia_action_agent"
+      },
+      {
+        "number": "1066",
+        "title": "RCA | LON  - 7a7 | error_deleting_RBD_acadia_action_agent_eu-gb"
+      },
+      {
+        "number": "1065",
+        "title": "RCA | LON | error_opening_ceph_volume_for_snapshot_image_acadia_action_agent"
+      },
+      {
+        "number": "1063",
+        "title": "RCA | LON - 7a7 | Storage snapshot action error pending"
+      },
+      {
+        "number": "1062",
+        "title": "RCA | WDC | zonal_image_image_notFound_acadia_zonalimage_controller"
+      },
+      {
+        "number": "1009",
+        "title": "RCA | FRA mzonecb1 | Cephadm failed daemon"
+      },
+      {
+        "number": "999",
+        "title": "RCA | WDC mzone757 | timeout_waiting_for_response_from_server_acadia_acadia_storage_device_controller"
+      },
+      {
+        "number": "993",
+        "title": "RCA | NGDC Staging | Smoke failure for Storage - Backup service"
+      },
+      {
+        "number": "964",
+        "title": "RCA | WDC 04 | Internal Server Error"
+      },
+      {
+        "number": "962",
+        "title": "RCA | NGDC staging | FlexVol creation on Netapp failure"
+      },
+      {
+        "number": "961",
+        "title": "RCA | Tokyo mzone2g7 | Pod image pull back off"
+      },
+      {
+        "number": "952",
+        "title": "RCA | DAL Staging | Error disconnecting qcow2 file from nbd device"
+      },
+      {
+        "number": "945",
+        "title": "RCA | DAL staging | SPC failures for share in staging environment"
+      },
+      {
+        "number": "942",
+        "title": "RCA | NIC detection issue in multiple clusters"
+      },
+      {
+        "number": "917",
+        "title": "RCA | DAL,727 | Smoke test failure for image stuck in pending state"
+      },
+      {
+        "number": "874",
+        "title": "RCA | WDC04, mzone757 | INC9847447, Storage pool is over provisioned"
+      },
+      {
+        "number": "872",
+        "title": "RCA | SYD-01 | need restore the image and data volume from a corrupted VSI"
+      },
+      {
+        "number": "870",
+        "title": "RCA |DAL Staging | error_mounting_temp_storage"
+      },
+      {
+        "number": "860",
+        "title": "RCA | US-South Dal 13 | High Memory Usage for RFOS pod"
+      },
+      {
+        "number": "853",
+        "title": "RCA | LON06 | no data flowing from mzonepa1"
+      },
+      {
+        "number": "842",
+        "title": "RCA | Dallas NGDC Test STAGING | Observed smt create failure"
+      },
+      {
+        "number": "811",
+        "title": "RCA | FRA prod mzone2b7, mzone2c7 | Storage pool updates are delayed"
+      },
+      {
+        "number": "810",
+        "title": "RCA | OSA osa21 | Backup service pods restart"
+      },
+      {
+        "number": "793",
+        "title": "RCA | BR-SAO-PROD  mzonect1 | Sysdig metrics absent"
+      },
+      {
+        "number": "761",
+        "title": "RCA | OSA cn1 | Sysdig metrics absent (due to osprey migration)"
+      },
+      {
+        "number": "750",
+        "title": "RCA | Any region | Alert not snoozed during platform deployment"
+      },
+      {
+        "number": "738",
+        "title": "RCA | DAL mzone727 | Multiple zonal Snapshot pod restarts"
+      },
+      {
+        "number": "737",
+        "title": "RCA | SYD 04 | Backup service pods restart"
+      },
+      {
+        "number": "735",
+        "title": "RCA | BNPP mzone2l7 | Zonal Snapshot Delete Job Queue count increasing"
+      },
+      {
+        "number": "728",
+        "title": "RCA | Dal10 | High CPU Usage for regional storage pods"
+      },
+      {
+        "number": "724",
+        "title": "RCA | All prod | Regional Share metrics is not emitted"
+      },
+      {
+        "number": "722",
+        "title": "RCA | CA-MON | Observed flexvol creation failure"
+      },
+      {
+        "number": "719",
+        "title": "RCA | SAO Regional | Backup service pods restart"
+      },
+      {
+        "number": "709",
+        "title": "RCA | WDC, DAL  | [stg-backup-icl-034] Event notification endpoint unavailable"
+      },
+      {
+        "number": "700",
+        "title": "RCA | DAL | High CPU Usage for regional storage pods"
+      },
+      {
+        "number": "686",
+        "title": "RCA | PAR regional storage PODs crashing |"
+      },
+      {
+        "number": "681",
+        "title": "RCA | LON mzonep91 | CEPHADM_HOST_CHECK_FAILED"
+      },
+      {
+        "number": "680",
+        "title": "RCA | Staging mzones21 |  Spikes in health"
+      },
+      {
+        "number": "679",
+        "title": "RCA | Tor ca-tor mzonecq1 | CEPHADM_APPLY_SPEC_FAIL"
+      },
+      {
+        "number": "626",
+        "title": "RCA | us-south-staging mzone726 | error_writing_to_target_image_acadia_action_agent"
+      },
+      {
+        "number": "595",
+        "title": "RCA | All prod regions | INC9373462"
+      },
+      {
+        "number": "582",
+        "title": "RCA | BNPP par04 (regional) | High Memory Usage for regional-storage"
+      },
+      {
+        "number": "581",
+        "title": "RCA | jp-osa | Backup service pods restart"
+      },
+      {
+        "number": "577",
+        "title": "RCA | FRA mzone2c7, mzone2b7, mzone2d7 | Acadia Genctl Sysdig metrics absent"
+      },
+      {
+        "number": "553",
+        "title": "RCA | WDC07 mzonep72 | High inode usage alert"
+      },
+      {
+        "number": "546",
+        "title": "RCA | Fra mzonecb1  | Sysdig metrics absent"
+      },
+      {
+        "number": "541",
+        "title": "RCA | eu-es Madrid mzonecw1 | Sysdig Metrics Absent"
+      },
+      {
+        "number": "537",
+        "title": "RCA | ca-tor mzonecq1 |  Monitor Service Down"
+      },
+      {
+        "number": "535",
+        "title": "RCA | EU-ES, px1 | Acadia Node High Inode Usage"
+      },
+      {
+        "number": "510",
+        "title": "RCA | WDC STG mzoneb51 | High inode Usage"
+      },
+      {
+        "number": "494",
+        "title": "RCA | SAO | Backup service unavailable"
+      },
+      {
+        "number": "493",
+        "title": "RCA | DAL DAL10 | Backup service pods restart"
+      },
+      {
+        "number": "421",
+        "title": "RCA | Staging 716 | Alert got triggered for the ICL view error_updating_head_snapshot_acadia_volume_provisioner_ca-tor-s..."
+      },
+      {
+        "number": "419",
+        "title": "RCA | TOR tor05 | Failure to delete backup policy"
+      },
+      {
+        "number": "417",
+        "title": "RCA | LON Mzone7a7 | failed_to_get_deleting_snapshots_parent_snapshot_acadia_snapshot_controller_eu-gb_slack_presence"
+      },
+      {
+        "number": "409",
+        "title": "RCA | LON mzonep91 | High inode Usage"
+      },
+      {
+        "number": "404",
+        "title": "RCA | DAL Staging 716 | error_removing_soft_deleted_RBD_volume_acadia_action_agent_ca-tor-staging_slack_presence"
+      },
+      {
+        "number": "324",
+        "title": "RCA | DAL STG mzone716 | failed_to_get_deleting_snapshots_parent_snapshot_acadia_snapshot_controller"
+      },
+      {
+        "number": "278",
+        "title": "RCA | WDC mzone767 | createClientKey_failed_acadia_storage_device_controller"
+      },
+      {
+        "number": "277",
+        "title": "RCA | STG DAL mzone716 | updateAcadiaAction_failed_acadia_snapshot_controller_ca-tor-staging_slack_presence"
+      },
+      {
+        "number": "276",
+        "title": "RCA | wdc mzone757 | update_SV_failed_adding_HeldBySnapshot"
+      },
+      {
+        "number": "275",
+        "title": "RCA |FRA mzone2b7 | error_removing_soft_deleted_RBD_volume_acadia_action_agent"
+      },
+      {
+        "number": "274",
+        "title": "RCA | Staging 716 | error_locking_volume_acadia_snapshot_controller"
+      },
+      {
+        "number": "273",
+        "title": "RCA | staging mzone716 | High CPU Usage > 80%"
+      }
+    ],
+    "Synthetic Provisioning Issues": [
+      {
+        "number": "1786",
+        "title": "RCA | DAL STG mzone716 | Synthetic Provisioning: No successful build found in last 3 builds disabling cron job"
+      },
+      {
+        "number": "1775",
+        "title": "RCA | OSA mzone2n7| Synthetic Provisioning: Share not deleted, after waiting for 10 minutes"
+      },
+      {
+        "number": "1730",
+        "title": "RCA | DAL staging | Synthetic Provisioning: Share Mount Target did not reach to stable state after waiting for 10 minutes"
+      },
+      {
+        "number": "1726",
+        "title": "RCA | DAL staging | Synthetic Provisioning: Share did not reach to stable state after waiting for 10 minutes"
+      },
+      {
+        "number": "1721",
+        "title": "RCA | LON c81 | Synthetic Provisioning: Share Mount Target did not reach to stable state after waiting for 10 minutes"
+      },
+      {
+        "number": "1702",
+        "title": "RCA | eu-gb mzone7a7,mzone797, mzone787 | Synthetic Provisioning: Share Mount Target did not reach to stable state after waiting for 10 minutes"
+      },
+      {
+        "number": "1692",
+        "title": "RCA | DAL_STAGING | Synthetic Provisioning: No successful build found in last 3 builds disabling cron job.Enable the build manually to continue further after 45 minutes"
+      },
+      {
+        "number": "1668",
+        "title": "RCA | SYD | Synthetic Provisioning: Share did not reach to stable state after waiting for 10 minutes"
+      },
+      {
+        "number": "1642",
+        "title": "RCA | SYD Synthetic Provisioning: Share did not updated, after waiting for 10 minutes"
+      },
+      {
+        "number": "1554",
+        "title": "RCA | DAL STAG | Synthetic Provisioning: Share did not reach to stable state after waiting for 10 minutes"
+      },
+      {
+        "number": "1409",
+        "title": "RCA | DAl US-South | mzone726 | Synthetic Provisioning: Share Mount Target did not reach to stable state after waiting for 10 minutes [Staging]"
+      },
+      {
+        "number": "972",
+        "title": "RCA | FRA  mzone2c7 | Synthetic Provisioning: VSI creation failure, create operation executed 15 minutes ago"
+      },
+      {
+        "number": "433",
+        "title": "RCA | TOR  [mzone2r7]  | Synthetic Provisioning: VSI deletion failure, delete operation executed 10 minutes ago"
+      }
+    ],
+    "Pod/Container Issues": [
+      {
+        "number": "1785",
+        "title": "RCA | IN-MUM PROD | Regional file pod is in crashloopbackoff"
+      },
+      {
+        "number": "1779",
+        "title": "RCA | SAO05 mzone2v7 | Regional file pod is in crashloopbackoff"
+      },
+      {
+        "number": "1773",
+        "title": "RCA | DAL mzone737 | storage-agent pods not ready"
+      },
+      {
+        "number": "1766",
+        "title": "RCA | WDC TOR  | storage-agent pods are not ready AND Observed Multiple Storage Agent Pods Not Ready"
+      },
+      {
+        "number": "1763",
+        "title": "RCA | CA-MON mon3-qz1-sr3-rk162-s34/s50 | Regional file pod is in crashloopbackoff"
+      },
+      {
+        "number": "1751",
+        "title": "RCA | DAL | DAL OOMkill Issue"
+      },
+      {
+        "number": "1750",
+        "title": "RCA |  TOR Prod | storage-agent pods are not ready, Observed Multiple Storage Agent Pods Not Ready"
+      },
+      {
+        "number": "1749",
+        "title": "RCA | NGDC-STG (mzone516, mzone526 and mzone536) | Pods out of memory (OOM)"
+      },
+      {
+        "number": "1738",
+        "title": "RCA | DAL NGDC-STG | Pod image pull backoff"
+      },
+      {
+        "number": "1666",
+        "title": "RCA | mzone717  | Pod High Memory Usage Short Spike"
+      },
+      {
+        "number": "1664",
+        "title": "RCA | WDC mzone767 | Pod High Memory Usage Short Spike"
+      },
+      {
+        "number": "1662",
+        "title": "RCA | DAL mzone717 | Pod High Memory Usage Short Spike"
+      },
+      {
+        "number": "1654",
+        "title": "RCA | DAL, mzone717 | Regional file pod is in crashloopbackoff"
+      },
+      {
+        "number": "1640",
+        "title": "RCA | TOK, mzone2f7| Pod High CPU"
+      },
+      {
+        "number": "1636",
+        "title": "RCA | BNPP mzone2k7 Pod High CPU"
+      },
+      {
+        "number": "1630",
+        "title": "RCA | WDC, mzone757,mzone767,mzone777 | Pod High CPU"
+      },
+      {
+        "number": "1628",
+        "title": "RCA | BNPP Regional file pod is in crashloopbackoff"
+      },
+      {
+        "number": "1626",
+        "title": "RCA | FRA Pod High CPU"
+      },
+      {
+        "number": "1610",
+        "title": "RCA | MAD Regional file pod is in crashloopbackoff"
+      },
+      {
+        "number": "1588",
+        "title": "RCA | FRA & BNPP | Regional snapshot pod is in crashloopbackoff"
+      },
+      {
+        "number": "1569",
+        "title": "RCA | NGDC wdc06  | Regional file pod is in crashloopbackoff"
+      },
+      {
+        "number": "1562",
+        "title": "RCA | IBM Yellow Staging 1 (YS1) STAGING - mzone736 | storage-agent pods are not ready"
+      },
+      {
+        "number": "1561",
+        "title": "RCA | BNPP_EU | storage-agent pods are not ready"
+      },
+      {
+        "number": "1560",
+        "title": "RCA | OSA mzone2o7  | Pods out of memory (OOM)"
+      },
+      {
+        "number": "1542",
+        "title": "RCA | eu-de mzone2b7  | storage-agent pods are not ready"
+      },
+      {
+        "number": "1538",
+        "title": "RCA | TOR - mzone2r7, mzone2s7 | storage-agent pods are not ready"
+      },
+      {
+        "number": "1533",
+        "title": "RCA | Staging mzoneu736 | storage-agent pods are not ready"
+      },
+      {
+        "number": "1504",
+        "title": "RCA | DAL mzone717 | Pods out of memory (OOM)"
+      },
+      {
+        "number": "1503",
+        "title": "RCA | Staging mzoneu736 | storage-agent pods are not ready"
+      },
+      {
+        "number": "1442",
+        "title": "RCA | mzone727 mzone717 | storage-agent pods are not ready / Observed Multiple Storage Agent Pods Not Ready"
+      },
+      {
+        "number": "1437",
+        "title": "RCA | DAL , WDC | Observed Multiple Storage Agent Pods Not Ready, storage-agent pods are not ready"
+      },
+      {
+        "number": "1426",
+        "title": "RCA | TOR mzone2r7 | storage-agent pods are not ready"
+      },
+      {
+        "number": "1425",
+        "title": "RCA | WDC mzone757 | storage-agent pods are not ready"
+      },
+      {
+        "number": "1406",
+        "title": "RCA | OSA, 2n7 | Pods in crashloopbackoff"
+      },
+      {
+        "number": "1376",
+        "title": "RCA | TOK all mzones | multiple pods in crashloop back off"
+      },
+      {
+        "number": "1348",
+        "title": "RCA | DAL mzone736  | storage-agent pods are not ready"
+      },
+      {
+        "number": "1337",
+        "title": "RCA | TOK Pods in crashloopbackoff"
+      },
+      {
+        "number": "1327",
+        "title": "RCA | DAL mzone717 | Pods out of memory (OOM)"
+      },
+      {
+        "number": "1306",
+        "title": "RCA | FRA Observed Multiple Storage Agent Pods Not Ready"
+      },
+      {
+        "number": "1305",
+        "title": "RCA | FRA  Zonal file pod is in crashloopbackoff state"
+      },
+      {
+        "number": "1226",
+        "title": "RCA | DAL mzone717-zonelet2| Pods in crashloopbackoff"
+      },
+      {
+        "number": "1192",
+        "title": "RCA | DAL 737| storage agent pods are not ready"
+      },
+      {
+        "number": "1166",
+        "title": "RCA | SYD | Pods in crashloopbackoff"
+      },
+      {
+        "number": "1161",
+        "title": "RCA | DAL mzone727 | Pods in crashloopbackoff"
+      },
+      {
+        "number": "1132",
+        "title": "RCA | TOR mzone2q7 | Pod image pull backoff"
+      },
+      {
+        "number": "1033",
+        "title": "RCA | Dal, 717 | Pods in crashloopbackoff"
+      },
+      {
+        "number": "1004",
+        "title": "RCA | DAL mzone717 | Pods in crashloopbackoff"
+      },
+      {
+        "number": "928",
+        "title": "RCA | TOR | storage-agent pods are not ready"
+      },
+      {
+        "number": "886",
+        "title": "RCA | DAL mzone717 | Pod in evicted state"
+      },
+      {
+        "number": "833",
+        "title": "RCA | LON mzone7a7 | Pods in crashloopbackoff"
+      },
+      {
+        "number": "817",
+        "title": "RCA | MAD | Regional Pod in Crashloopback State"
+      },
+      {
+        "number": "776",
+        "title": "RCA | TOR - 2r7, 2s7. | INC9668958 - Observed Multiple Storage Agent Pods Not Ready"
+      },
+      {
+        "number": "763",
+        "title": "RCA | DAL 727, 737 | OOM issue in several pods"
+      },
+      {
+        "number": "734",
+        "title": "RCA | DAL mzone757 | storage-agent pods are not ready , Observed Multiple Storage Agent Pods Not Ready"
+      },
+      {
+        "number": "647",
+        "title": "RCA | TOR, 2q7 | Pod image pull backoff"
+      },
+      {
+        "number": "639",
+        "title": "RCA | dal-prod [mzone272] | Zonal snapshot pod is in crashloopbackoff state"
+      },
+      {
+        "number": "556",
+        "title": "RCA | DAL staging mzone736 | Pod High CPU"
+      },
+      {
+        "number": "431",
+        "title": "RCA | MON, zone-1 | Pod image pull backoff"
+      },
+      {
+        "number": "280",
+        "title": "RCA | WDC mzone757| Pods out of memory (OOM) [ALL-PROD]"
+      }
+    ],
+    "Hydrate/COS Issues": [
+      {
+        "number": "1784",
+        "title": "RCA | TOK PROD mzone2f7 | hydrate-operation-compute-action-failure & hydrate-operation-cos-action-failure"
+      },
+      {
+        "number": "1781",
+        "title": "RCA | FRA mzone2c7 | Hydrate COS Action failure"
+      },
+      {
+        "number": "1780",
+        "title": "RCA | FRA, 2c7 | Hydrate COS Action failure"
+      },
+      {
+        "number": "1761",
+        "title": "RCA | mzone2c7 | Hydrate COS Action Failure"
+      },
+      {
+        "number": "1686",
+        "title": "RCA |  CHE che-2 | Hydrate COS Action failure"
+      },
+      {
+        "number": "1652",
+        "title": "RCA | CHE che-02| Hydrate COS Action failure"
+      },
+      {
+        "number": "1648",
+        "title": "RCA | FRANKFRUT 2b7 | Hydrate COS Action failure"
+      },
+      {
+        "number": "1614",
+        "title": "RCA | CHE Hydrate COS Action failure"
+      },
+      {
+        "number": "1608",
+        "title": "RCA | CHE che-02| Hydrate COS Action failure"
+      },
+      {
+        "number": "1582",
+        "title": "RCA | Chennai Hydrate COS Action failure"
+      },
+      {
+        "number": "1576",
+        "title": "RCA | FRANKFRUT 2b7 | Hydrate COS Action failure"
+      },
+      {
+        "number": "1537",
+        "title": "RCA | Chennai | Hydrate COS Action failure"
+      },
+      {
+        "number": "1518",
+        "title": "RCA | Chennai | Hydrate COS Action failure"
+      },
+      {
+        "number": "1469",
+        "title": "RCA | FRA mzone2b7 | Hydrate cosaction failure"
+      },
+      {
+        "number": "1286",
+        "title": "RCA | FRA mzone2b7 | Hydrate COS Action failure"
+      },
+      {
+        "number": "585",
+        "title": "RCA | BNPP-PAR04 | Hydrate COS Action failure"
+      },
+      {
+        "number": "524",
+        "title": "RCA | BNPP mzone2k7 | Hydrate COS Action failure"
+      },
+      {
+        "number": "429",
+        "title": "RCA | SAO, SYD, PAR, TOR | Hydrate COS Action failure"
+      },
+      {
+        "number": "428",
+        "title": "RCA | SYD - 2h7, 2i7, 2j7 | Hydrate COS Action failure"
+      },
+      {
+        "number": "319",
+        "title": "RCA | FRA all mzones | Hydrate COS Action failure (Snapshots)"
+      }
+    ],
+    "Network Issues": [
+      {
+        "number": "1783",
+        "title": "RCA | TOR & WDC PRD | Nginx ingress controller emitting 5xx error for regional-storage service"
+      },
+      {
+        "number": "1777",
+        "title": "RCA | TOR | Nginx ingress controller emitting 5xx error for regional-storage service"
+      },
+      {
+        "number": "1770",
+        "title": "RCA | SAO, LON, SYD, OSA | Nginx ingress controller emitting 5xx error for regional-snapshot service"
+      },
+      {
+        "number": "1767",
+        "title": "RCA | DAL mzonep21, mzonep23 PROD | NIC card missing and interface down"
+      },
+      {
+        "number": "1762",
+        "title": "RCA | SYD rias-ng-au-syd-syd01-prod | Nginx ingress controller emitting 5xx error for regional-file service"
+      },
+      {
+        "number": "1659",
+        "title": "RCA | SYD mzonech1 | Acadia node network interface missing for regional cluster"
+      },
+      {
+        "number": "1553",
+        "title": "RCA | TOK mzonece1 | Acadia node network interface missing for regional cluster"
+      },
+      {
+        "number": "1524",
+        "title": "RCA | TOK mzonece1 Network Interface Is Missing"
+      },
+      {
+        "number": "1329",
+        "title": "RCA | PAR mzoneck1 Acadia node network interface missing for regional cluster"
+      },
+      {
+        "number": "1207",
+        "title": "RCA | DAL  mzonep22 | Acadia node network interface missing for zonal cluster"
+      },
+      {
+        "number": "1193",
+        "title": "RCA | FRA mzonecb1 | Acadia node network interface missing for regional cluster"
+      },
+      {
+        "number": "1036",
+        "title": "RCA | TOK mzonepf1 | Acadia node network interface missing for zonal cluster"
+      },
+      {
+        "number": "938",
+        "title": "RCA | SYD mzonech1 | Multiple Alerts received - Network outage"
+      }
+    ],
+    "Ceph Health Issues": [
+      {
+        "number": "1778",
+        "title": "RCA | DAL Staging| mzoneb11 | NFS related ceph health Flapping"
+      },
+      {
+        "number": "1774",
+        "title": "RCA | LON mzonec81 | Ceph Health Warn and CEPHADM Host Check Failed"
+      },
+      {
+        "number": "1742",
+        "title": "RCA | MAD mzonecw1 | Ceph Health Error mzonecw1"
+      },
+      {
+        "number": "1741",
+        "title": "RCA | OSA mzonecn1 | Ceph health has been flapping"
+      },
+      {
+        "number": "1737",
+        "title": "RCA | SYD mzonech1 | ceph health warn"
+      },
+      {
+        "number": "1731",
+        "title": "RCA | NGDC stage mzoneb61 | Ceph health metric absent in mzoneb61 NGDC stage"
+      },
+      {
+        "number": "1727",
+        "title": "RCA | SYD mzonech1 | Ceph Health Warn mzonech1 due to MDS_CLIENT_LATE_RELEASE"
+      },
+      {
+        "number": "1720",
+        "title": "RCA | DAL (PROD) mzonep21 | Ceph Health Warn"
+      },
+      {
+        "number": "1717",
+        "title": "RCA | OSA mzonepn1  | Ceph health has been flapping"
+      },
+      {
+        "number": "1687",
+        "title": "RCA | DAL_STAGING, mzoneb11 | Ceph health flapping"
+      },
+      {
+        "number": "1681",
+        "title": "RCA | SYD mzonech1 | Ceph Health Warn mzonech1"
+      },
+      {
+        "number": "1672",
+        "title": "RCA | TOR mzonepr1 |  Ceph health has been flapping"
+      },
+      {
+        "number": "1663",
+        "title": "RCA | Au-Syd mzonech1 | Ceph Health Warn mzonech1"
+      },
+      {
+        "number": "1660",
+        "title": "RCA | LON mzonec81 | Ceph mon quorum is at risk"
+      },
+      {
+        "number": "1641",
+        "title": "RCA | TOR mzoneps1 | Ceph health has been flapping"
+      },
+      {
+        "number": "1638",
+        "title": "RCA | DAL mzonep32 Ceph health has been flapping"
+      },
+      {
+        "number": "1635",
+        "title": "RCA | SYD01 mzoneph1 | OSD Host down"
+      },
+      {
+        "number": "1632",
+        "title": "RCA | TOR, mzonepr1 | Ceph health warn"
+      },
+      {
+        "number": "1622",
+        "title": "RCA | Tor Prod mzonepr1 | Ceph health has been flapping"
+      },
+      {
+        "number": "1618",
+        "title": "RCA | TOR mzonepq1 | Ceph health has been flapping"
+      },
+      {
+        "number": "1617",
+        "title": "RCA | SYD mzonch1 | Ceph health has been flapping"
+      },
+      {
+        "number": "1607",
+        "title": "RCA | DAL, mzonep32 | More than 10% of OSD's are down"
+      },
+      {
+        "number": "1592",
+        "title": "RCA | DAL mzonep31 | Ceph health has been flapping"
+      },
+      {
+        "number": "1583",
+        "title": "RCA | WDC mzones61 | Public network delayed OSD heartbeats followed by multiple alerts"
+      },
+      {
+        "number": "1572",
+        "title": "RCA | us-south mzonep31  | Ceph health has been flapping"
+      },
+      {
+        "number": "1559",
+        "title": "RCA | eu-de cb1 | Ceph Health Warn mzonecb1"
+      },
+      {
+        "number": "1539",
+        "title": "RCA | SYD mzonech1, Regional | ceph health flap in SYD mzonech1, MDS_SLOW_REQUEST"
+      },
+      {
+        "number": "1525",
+        "title": "RCA | mzonep62 | Ceph Health Warn mzonep62"
+      },
+      {
+        "number": "1520",
+        "title": "RCA | SAO mzonept1 | Ceph health has been flapping"
+      },
+      {
+        "number": "1505",
+        "title": "RCA | OSA mzonepo1 | Ceph health has been flapping"
+      },
+      {
+        "number": "1496",
+        "title": "RCA | DAL_STAGING, mzoneb11 | Ceph health flapping and ceph health warn"
+      },
+      {
+        "number": "1488",
+        "title": "RCA | WDC mzonep64 | Ceph health has been flapping [WDC]"
+      },
+      {
+        "number": "1486",
+        "title": "RCA | DAL mzonep12 | Ceph Health Warn mzonep12"
+      },
+      {
+        "number": "1478",
+        "title": "RCA | SAO05 mzonepv1 | Ceph health has been flapping"
+      },
+      {
+        "number": "1472",
+        "title": "RCA | FRA mzonecb1 | Ceph health has been flapping"
+      },
+      {
+        "number": "1449",
+        "title": "RCA | FRA cb1 | Ceph health flap / OSD down"
+      },
+      {
+        "number": "1447",
+        "title": "RCA | DAL multiple platform mzones p11, p21, p23, p31, p32, p42, p41 | MON_CLOCK_SKEW"
+      },
+      {
+        "number": "1438",
+        "title": "RCA | mzonece1 | MON_CLOCK_SKEW"
+      },
+      {
+        "number": "1434",
+        "title": "RCA | DAL-STAGE mzoneb11 | Ceph health has been flapping"
+      },
+      {
+        "number": "1424",
+        "title": "RCA | TOR mzonecq1 | Ceph health has been flapping"
+      },
+      {
+        "number": "1401",
+        "title": "RCA | FRA 05 Zonal mzonepd1 | Ceph Health Warn mzonepd1"
+      },
+      {
+        "number": "1396",
+        "title": "RCA | mzonect1 | Ceph health has been flapping"
+      },
+      {
+        "number": "1382",
+        "title": "RCA | DAL, mzonep11 | Ceph health has been flapping"
+      },
+      {
+        "number": "1374",
+        "title": "RCA | WDC mzonep63 | Ceph Health Warn and Ceph Health Flap"
+      },
+      {
+        "number": "1371",
+        "title": "RCA | PAR  - mzonepm1 | Ceph Health Warn mzonepm1"
+      },
+      {
+        "number": "1363",
+        "title": "RCA | TOK mzonece1 | Ceph health has been flapping"
+      },
+      {
+        "number": "1360",
+        "title": "RCA | LON mzonep91 | ceph health flapping <slow_ops>"
+      },
+      {
+        "number": "1354",
+        "title": "RCA | MAD mzonecw1 Ceph Health Warn mzonecw1, Cluster network delayed OSD heartbeats, PG Availability...."
+      },
+      {
+        "number": "1335",
+        "title": "RCA | DAL mzonec11 Ceph health status has been flapping."
+      },
+      {
+        "number": "1328",
+        "title": "RCA | mzonep72 | Ceph health has been flapping"
+      },
+      {
+        "number": "1326",
+        "title": "RCA | mzonep62 | Ceph health has been flapping"
+      },
+      {
+        "number": "1323",
+        "title": "RCA | DAL mzonep23 PG Availability issue, OSD Down"
+      },
+      {
+        "number": "1314",
+        "title": "RCA | SAO mzonect1 Ceph health has been flapping"
+      },
+      {
+        "number": "1275",
+        "title": "RCA | SAO mzonepu1, mzonepv1 | MON_CLOCK_SKEW"
+      },
+      {
+        "number": "1274",
+        "title": "RCA | WDC mzonep53 | Ceph Health Warn mzonep53"
+      },
+      {
+        "number": "1268",
+        "title": "RCA | mzonech1 | Ceph health has been flapping"
+      },
+      {
+        "number": "1257",
+        "title": "RCA | STAGE S21 | OSD Host Down"
+      },
+      {
+        "number": "1256",
+        "title": "RCA | FRA CB1 | Ceph health has been flapping"
+      },
+      {
+        "number": "1255",
+        "title": "RCA | Stage - S21 | Ceph Health Warn mzones21"
+      },
+      {
+        "number": "1251",
+        "title": "RCA | WDC, C51 | Ceph health has been flapping"
+      },
+      {
+        "number": "1250",
+        "title": "RCA | SYD PJ1 | Ceph health has been flapping"
+      },
+      {
+        "number": "1247",
+        "title": "RCA | Stage - mzoneb11 | Ceph mon number is even, must be uneven"
+      },
+      {
+        "number": "1243",
+        "title": "RCA | LON - mzonep91 | Ceph health has been flapping"
+      },
+      {
+        "number": "1241",
+        "title": "RCA | TOR, mzonepq1 | Ceph mon quorum is at risk"
+      },
+      {
+        "number": "1235",
+        "title": "RCA | DAL mzonec11 | Ceph health has been flapping"
+      },
+      {
+        "number": "1224",
+        "title": "RCA | WDC - P71 | Ceph Health Warn mzonep71"
+      },
+      {
+        "number": "1222",
+        "title": "RCA | LON mzonep91 | Ceph health has been flapping"
+      },
+      {
+        "number": "1221",
+        "title": "RCA | MAD  mzonecw1 | Ceph Health Warn mzonecw1"
+      },
+      {
+        "number": "1186",
+        "title": "RCA | OSA mzonepp1, TOK mzonece1, pe1, pf1 | Ceph health warn"
+      },
+      {
+        "number": "1146",
+        "title": "RCA | WDC mzonep64 | OSD Slow Op, OSD Slow Heart Beats ...."
+      },
+      {
+        "number": "1145",
+        "title": "RCA | DAL mzonec11 | Ceph health has been flapping"
+      },
+      {
+        "number": "1141",
+        "title": "RCA | LON mzonep91 | Ceph health has been flapping"
+      },
+      {
+        "number": "1140",
+        "title": "RCA | LON mzonec81 | Ceph health has been flapping"
+      },
+      {
+        "number": "1137",
+        "title": "RCA | WDC mzonec51  | Ceph health has been flapping"
+      },
+      {
+        "number": "1135",
+        "title": "RCA | WDC mzonep61 | Ceph Health Warn"
+      },
+      {
+        "number": "1077",
+        "title": "RCA | PAR mzoneck1 | Ceph Health has been Flapping & Ceph Health Warn"
+      },
+      {
+        "number": "1074",
+        "title": "RCA | SYD, mzonech1 | Ceph health has been flapping"
+      },
+      {
+        "number": "1058",
+        "title": "RCA | DAL Stage mzoneb11 | Ceph Health Error"
+      },
+      {
+        "number": "1056",
+        "title": "RCA | DAL Stage mzoneb11 | Ceph health has been flapping"
+      },
+      {
+        "number": "1051",
+        "title": "RCA | SAO mzonepv1 | Ceph health has been flapping"
+      },
+      {
+        "number": "1050",
+        "title": "RCA | SYD mzonepj1 | OSD Host Down"
+      },
+      {
+        "number": "1046",
+        "title": "RCA | DAL mzonec11 | Ceph health has been flapping"
+      },
+      {
+        "number": "1045",
+        "title": "RCA | WDC mzonep53 | Ceph health has been flapping"
+      },
+      {
+        "number": "1044",
+        "title": "RCA | SAO mzonect1 | Ceph Health Warn mzonect1"
+      },
+      {
+        "number": "1025",
+        "title": "RCA | FRA mzonepd1 | BLUESTORE_SLOW_OP_ALERT"
+      },
+      {
+        "number": "1021",
+        "title": "RCA | DAL mzonec11 | PG Availability issue"
+      },
+      {
+        "number": "1016",
+        "title": "RCA | DAL mzonec11 | Ceph Health Warn | Slow Ops"
+      },
+      {
+        "number": "989",
+        "title": "RCA | WDC mzonep72 | OSD Near full, Pool near full"
+      },
+      {
+        "number": "983",
+        "title": "RCA | PAR mzonepm1 | Public network delayed OSD heartbeats"
+      },
+      {
+        "number": "980",
+        "title": "RCA | TOK mzonece1| Public network delayed OSD heartbeats"
+      },
+      {
+        "number": "966",
+        "title": "RCA | TOR PS1 | More than 10% of OSD's are down"
+      },
+      {
+        "number": "908",
+        "title": "RCA | TOK, mzonece1 | Ceph Health Warn mzonece1"
+      },
+      {
+        "number": "888",
+        "title": "RCA | DAL mzonec11, mzoneb11 | CEPH Health Error"
+      },
+      {
+        "number": "818",
+        "title": "RCA | mzonep42 | SLOW_OP"
+      },
+      {
+        "number": "805",
+        "title": "RCA | BNPP mzoneck1 | Ceph Health Warn mzoneck1"
+      },
+      {
+        "number": "804",
+        "title": "RCA | BNPP mzonepl1 | Monitor Service Down/Ceph Health Warn/CEPHADM Host Check Failed/Ceph mon quorum is at risk"
+      },
+      {
+        "number": "802",
+        "title": "RCA | TOK mzonece1 | ceph health warn"
+      },
+      {
+        "number": "799",
+        "title": "RCA | DAL Stage mzoneb11  | Ceph mon quorum is at risk"
+      },
+      {
+        "number": "760",
+        "title": "RCA | FRA, mzonecb1 | Public network delayed OSD heartbeats, Cluster network delayed OSD heartbeats"
+      },
+      {
+        "number": "645",
+        "title": "RCA | [dal stage regional]mzoneb11 | Ceph health warn Slow OPS"
+      },
+      {
+        "number": "597",
+        "title": "RCA | DAL - mzoneb51 | PG Availability issue"
+      },
+      {
+        "number": "557",
+        "title": "RCA | SYD04 mzonepi1 | Ceph health warn and PG Availability issue"
+      },
+      {
+        "number": "547",
+        "title": "RCA | US_SOUTH STAGE mzoneb51 | Cluster network delayed OSD heartbeats | Public network delayed OSD heartbeats"
+      },
+      {
+        "number": "543",
+        "title": "RCA | br-sao mzonect1 | PG Availability issue"
+      },
+      {
+        "number": "531",
+        "title": "RCA | DAL STAGE mzone b11 | Ceph Health Warn"
+      },
+      {
+        "number": "526",
+        "title": "RCA | WDC mzonep73  US-EAST  |  Ceph Health Warn"
+      },
+      {
+        "number": "523",
+        "title": "RCA | TOK mzonece1  | Ceph mon quorum is at risk"
+      },
+      {
+        "number": "518",
+        "title": "RCA | PAR04 mzonepk1 | PG Availability issue [EU-FR2-PROD]"
+      },
+      {
+        "number": "465",
+        "title": "RCA | FRA mzonepb1| Ceph mon quorum is at risk"
+      },
+      {
+        "number": "434",
+        "title": "RCA | WDC mzone p52 | Ceph mon quorum is at risk"
+      },
+      {
+        "number": "430",
+        "title": "RCA | us-south-staging [mzoneb11] | Cluster network delayed OSD heartbeat"
+      },
+      {
+        "number": "415",
+        "title": "RCA | DAL Staging b11 | Ceph health warn"
+      },
+      {
+        "number": "406",
+        "title": "RCA | WDC p72, .... | Ceph health warn"
+      },
+      {
+        "number": "320",
+        "title": "RCA | LON PRD Mzonep81 | Ceph Health Warn"
+      },
+      {
+        "number": "314",
+        "title": "RCA | PRD FRA mzonecb1 | ceph mon quorum is at risk in mzonecb1 [EU-DE-PROD]"
+      },
+      {
+        "number": "305",
+        "title": "RCA | US-SOUTH-STAGE mzoneb11 | PG Availability issue"
+      }
+    ],
+    "Encryption/Security Issues": [
+      {
+        "number": "1732",
+        "title": "RCA | SYD, 2h7 | One of the KMIP pod is unavailable"
+      },
+      {
+        "number": "1718",
+        "title": "RCA | LON mzone2c7 | acadia-vault-agent's vault-agent sidecar timing out/error"
+      },
+      {
+        "number": "1464",
+        "title": "RCA | CA-TOR| Vault agent api failure"
+      },
+      {
+        "number": "1364",
+        "title": "RCA | DAL Stage 736 | Alert got triggered for the ICL view keylore_request_failure_encryption_acadia_encryption_controller..."
+      },
+      {
+        "number": "1339",
+        "title": "RCA | SYD INC10752705 - Alert got triggered for the ICL view keylore_request_failure_encryption_acadia_encryption_controller."
+      },
+      {
+        "number": "1304",
+        "title": "RCA |  SAO INC10718972 - One of the KMIP pod is unavailable"
+      },
+      {
+        "number": "1262",
+        "title": "RCA |DAL1 mzone716 |keylore_request_failure_encryption_acadia_encryption_controller"
+      },
+      {
+        "number": "1240",
+        "title": "RCA | FRA 02 | Vault agent api failure"
+      },
+      {
+        "number": "1218",
+        "title": "RCA | SYD05 mzone2i7 | Alert got triggered for the ICL view keylore_request_failure_encryption_acadia_encryption_controller_86bc8549fd-tsbrv"
+      },
+      {
+        "number": "1187",
+        "title": "RCA | WDC staging mzone756  | Alert got triggered for the ICL view keylore_request_failure_encryption_acadia_encryption_controller..."
+      },
+      {
+        "number": "1006",
+        "title": "RCA | Dal Staging mzone726 |  SDP boot volume using encryption, issues with RHCOS ignition with SDP boot disks + user managed KMS encryption for boot disk"
+      },
+      {
+        "number": "869",
+        "title": "RCA | SAO sao05 | Vault agent api failure"
+      },
+      {
+        "number": "767",
+        "title": "RCA | PAR | Observed Event for Key Protect Errors"
+      },
+      {
+        "number": "747",
+        "title": "RCA | WDC 07 | Observed Event for Key Protect Errors"
+      },
+      {
+        "number": "685",
+        "title": "RCA | CA-MON |  Vault agent sealed"
+      },
+      {
+        "number": "632",
+        "title": "RCA | PAR mzone2l7 | Observed Event for Key Protect Errors"
+      }
+    ],
+    "Snapshot Issues": [
+      {
+        "number": "1695",
+        "title": "RCA | mzone2b7 FRA | Blockcommit failure during compute action"
+      },
+      {
+        "number": "1683",
+        "title": "RCA | in-mum-prod01-zone3 | Customer snapshot failed - InternalError"
+      },
+      {
+        "number": "1670",
+        "title": "RCA | WDC| Customer snapshot failed - InternalError"
+      },
+      {
+        "number": "1655",
+        "title": "RCA | FRA 2b7 | Blockcommit failure during compute action"
+      },
+      {
+        "number": "1601",
+        "title": "RCA | TOR | Share replica snapshot creation failed"
+      },
+      {
+        "number": "1571",
+        "title": "RCA | SYD mzone2h7 | Blockcommit failure during compute action"
+      },
+      {
+        "number": "1568",
+        "title": "RCA | SYD | Blockcommit failure during compute action"
+      },
+      {
+        "number": "1567",
+        "title": "RCA | mzone2d7 | Blockcommit failure during compute action"
+      },
+      {
+        "number": "1541",
+        "title": "RCA | eu-de mzone2b7 | Blockcommit failure during compute action"
+      },
+      {
+        "number": "1540",
+        "title": "RCA | eu-de  mzone2c7  | Blockcommit failure during compute action"
+      },
+      {
+        "number": "1532",
+        "title": "RCA | BNPP mzone2c7 | Blockcommit failure during compute action"
+      },
+      {
+        "number": "1530",
+        "title": "RCA | BNPP mzone2c7 | Blockcommit failure during compute action"
+      },
+      {
+        "number": "1523",
+        "title": "RCA | BNPP mzone2l7  | Blockcommit failure during compute action"
+      },
+      {
+        "number": "1513",
+        "title": "RCA | LON mzone7a7 | Blockcommit failure during compute action"
+      },
+      {
+        "number": "1512",
+        "title": "RCA | BNPP mzone2l7 | Blockcommit failure during compute action"
+      },
+      {
+        "number": "1511",
+        "title": "RCA | Staging mzone736 | Customer snapshot failed - InternalError"
+      },
+      {
+        "number": "1490",
+        "title": "RCA | Sydney (au-syd) REGION| Blockcommit failure during compute action"
+      },
+      {
+        "number": "1483",
+        "title": "RCA | FRA  | Blockcommit failure during compute action"
+      },
+      {
+        "number": "1476",
+        "title": "RCA | SYD 2i7 | Blockcommit failure during compute action"
+      },
+      {
+        "number": "1462",
+        "title": "RCA | TOR mzone2q7  | Blockcommit failure during compute action"
+      },
+      {
+        "number": "1458",
+        "title": "RCA | TOR mzone2q7| Blockcommit failure during compute action"
+      },
+      {
+        "number": "1448",
+        "title": "RCA | SYD 2i7 | Blockcommit failure during compute action"
+      },
+      {
+        "number": "1429",
+        "title": "RCA | LON mzone787 | Storage snapshot action error failed percent"
+      },
+      {
+        "number": "1428",
+        "title": "RCA | FRA, mzone2d7 | Blockcommit failure during compute action"
+      },
+      {
+        "number": "1427",
+        "title": "RCA | WDC mzone757 | Blockcommit failure during compute action"
+      },
+      {
+        "number": "1385",
+        "title": "RCA | LON  mzone7a7 | Blockcommit failure during compute action"
+      },
+      {
+        "number": "1383",
+        "title": "RCA | SYD mzone2i7| Blockcommit failure during compute action"
+      },
+      {
+        "number": "1381",
+        "title": "RCA | SYD -2j7 | Blockcommit failure during compute action"
+      },
+      {
+        "number": "1378",
+        "title": "RCA | DAL 717 | Blockcommit failure during compute action"
+      },
+      {
+        "number": "1370",
+        "title": "RCA | SYD mzone2i7   |  Blockcommit failure during compute action"
+      },
+      {
+        "number": "1315",
+        "title": "RCA | LON Customer snapshot failed - InternalError"
+      },
+      {
+        "number": "1300",
+        "title": "RCA | WDC | Multiple Snapshot Handshake Failure - SnapshotLimitReached."
+      },
+      {
+        "number": "1297",
+        "title": "RCA | LON 787 | Share replica snapshot creation failed"
+      },
+      {
+        "number": "1245",
+        "title": "RCA | BNPP, 2k7 | Blockcommit failure during compute action"
+      },
+      {
+        "number": "1233",
+        "title": "RCA | Dal mzone747 | Multiple Snapshot Handshake Failure - SnapshotLimitReached"
+      },
+      {
+        "number": "1232",
+        "title": "RCA | DAL, 747 | Multiple Snapshot Handshake Failure - SnapshotLimitReached"
+      },
+      {
+        "number": "1228",
+        "title": "RCA | BNPP, 2k7 | Blockcommit failure during compute action"
+      },
+      {
+        "number": "1223",
+        "title": "RCA | DAL Region | Blockcommit failure during compute action"
+      },
+      {
+        "number": "1168",
+        "title": "RCA | DAL STAGING | Snapshot state changed from TRANSFERRING to TRANSFERFAILED"
+      },
+      {
+        "number": "1076",
+        "title": "RCA | DAL rias-ng-us-south-dal12-prod | Snapshot state changed from TRANSFERRING to TRANSFERFAILED"
+      },
+      {
+        "number": "1013",
+        "title": "RCA | OSA, mzone2o7 | Blockcommit failure during compute action"
+      },
+      {
+        "number": "990",
+        "title": "RCA | TOK  | Customer snapshot failed - LibvirtSnapshotFailed"
+      },
+      {
+        "number": "979",
+        "title": "RCA | LON 7a7 | Storage snapshot action error failed percent"
+      },
+      {
+        "number": "977",
+        "title": "RCA | FRA mzone2b7 | Blockcommit failure during compute action"
+      },
+      {
+        "number": "957",
+        "title": "RCA | SYD mzone2i7 | Share replica snapshot creation failed"
+      },
+      {
+        "number": "951",
+        "title": "RCA | DAL 10 | Customer snapshot failed - LibvirtSnapshotFailed"
+      },
+      {
+        "number": "933",
+        "title": "RCA | DAL 717 | Customer snapshot failed - LibvirtSnapshotFailed"
+      },
+      {
+        "number": "900",
+        "title": "RCA | WDC | Blockcommit failure during compute action"
+      },
+      {
+        "number": "898",
+        "title": "RCA | WDC | Customer snapshot failed - LibvirtSnapshotFailed"
+      },
+      {
+        "number": "891",
+        "title": "RCA | WDC,777 | Multiple Snapshot Handshake Failure - SnapshotLimitReached."
+      },
+      {
+        "number": "837",
+        "title": "RCA | WDC 767 | Customer snapshot failed - LibvirtSnapshotFailed"
+      },
+      {
+        "number": "766",
+        "title": "RCA | TOK jp-tok-tok05 | Customer snapshot failed - LibvirtSnapshotFailed"
+      },
+      {
+        "number": "744",
+        "title": "RCA | DAL , 717 | Customer snapshot failed - LibvirtSnapshotFailed"
+      },
+      {
+        "number": "697",
+        "title": "RCA | BNPP | Customer snapshot failed - LibvirtSnapshotFailed"
+      },
+      {
+        "number": "648",
+        "title": "RCA | DAL [mzone717] | Customer snapshot failed - LibvirtSnapshotFailed"
+      },
+      {
+        "number": "641",
+        "title": "RCA | [tokyo] [mzone2e7] | Customer snapshot failed - LibvirtSnapshotFailed"
+      },
+      {
+        "number": "636",
+        "title": "RCA | TOK mzone2e7 | Customer snapshot failed - LibvirtSnapshotFailed"
+      },
+      {
+        "number": "628",
+        "title": "RCA | us-south-prod [mzone717] | Customer snapshot failed - LibvirtSnapshotFailed"
+      },
+      {
+        "number": "608",
+        "title": "RCA | BNPP  | Customer snapshot failed - LibvirtSnapshotFailed"
+      },
+      {
+        "number": "588",
+        "title": "RCA | SYD  | Customer snapshot failed - LibvirtSnapshotFailed"
+      },
+      {
+        "number": "584",
+        "title": "RCA | MON prod - zone3 | Blockcommit failure during compute action"
+      },
+      {
+        "number": "575",
+        "title": "RCA | BNPP 2k7 | Customer snapshot failed - LibvirtSnapshotFailed"
+      },
+      {
+        "number": "564",
+        "title": "RCA | MON  | Snapshot state changed from TRANSFERRING to TRANSFERFAILED"
+      },
+      {
+        "number": "550",
+        "title": "RCA | TOK  | Blockcommit failure during compute action"
+      },
+      {
+        "number": "545",
+        "title": "RCA | MAD02  eu-es | Snapshot state changed from TRANSFERRING to TRANSFERFAILED"
+      },
+      {
+        "number": "538",
+        "title": "RCA | Tokyo jp-tok | Blockcommit failure during compute action"
+      },
+      {
+        "number": "525",
+        "title": "RCA | TOK mzone2e7 | Customer snapshot failed - LibvirtSnapshotFailed"
+      },
+      {
+        "number": "511",
+        "title": "RCA | TOK mzone2e7, 2g7, 2f7 | Blockcommit failure during compute action"
+      },
+      {
+        "number": "497",
+        "title": "RCA | TOK  | Customer snapshot failed - LibvirtSnapshotFailed"
+      },
+      {
+        "number": "487",
+        "title": "RCA | DAL rias-ng-us-south-dal10-preprod | Customer snapshot failed - LibvirtSnapshotFailed"
+      },
+      {
+        "number": "424",
+        "title": "RCA | DAL 717| Blockcommit failure during compute action"
+      },
+      {
+        "number": "422",
+        "title": "RCA | Tokyo 2e7 | Blockcommit failure during compute action"
+      },
+      {
+        "number": "413",
+        "title": "RCA | DAL 10 | Customer snapshot failed - LibvirtSnapshotFailed"
+      },
+      {
+        "number": "407",
+        "title": "RCA | DAL 12 | Customer snapshot failed - LibvirtSnapshotFailed"
+      },
+      {
+        "number": "375",
+        "title": "RCA | us-south-stg_mzone736 |  Blockcommit failure during compute action"
+      }
+    ],
+    "Share/File Storage Issues": [
+      {
+        "number": "1649",
+        "title": "RCA | OSA, 2p7 |  Synthetic Provisioning: Configure and mount an NFS share on a VPC VSI"
+      },
+      {
+        "number": "1646",
+        "title": "RCA | N/A N/A | Share noretry failed"
+      },
+      {
+        "number": "1634",
+        "title": "RCA | CHE NFS Server not responding still trying"
+      },
+      {
+        "number": "1609",
+        "title": "RCA | MON | Share noretry failed"
+      },
+      {
+        "number": "1602",
+        "title": "RCA | MUM  Zone2 |  NFS Server not responding still trying"
+      },
+      {
+        "number": "1564",
+        "title": "RCA | mzone736  us-south  | Synthetic Provisioning: Configure and mount an NFS share on a VPC VSI"
+      },
+      {
+        "number": "1543",
+        "title": "RCA | eu-de mzone2d7 | Observed event for Mount Failed"
+      },
+      {
+        "number": "1529",
+        "title": "RCA | BNPP mzone2l7 | Observed event for Mount Failed"
+      },
+      {
+        "number": "1507",
+        "title": "RCA | PAR mzone2l7 | Observed event for Mount Failed"
+      },
+      {
+        "number": "1502",
+        "title": "RCA | WDC Prod   | Observed event for mount Failed"
+      },
+      {
+        "number": "1471",
+        "title": "RCA | DAL | denali fileshare creation is in pending state"
+      },
+      {
+        "number": "1430",
+        "title": "RCA | FRA mzone2d7 | Observed event for Mount Failed"
+      },
+      {
+        "number": "1408",
+        "title": "RCA | SYD au-syd-3  | Share deletion failure"
+      },
+      {
+        "number": "1352",
+        "title": "RCA for CS4438894 | MAD  | High response time for Denali FS"
+      },
+      {
+        "number": "1279",
+        "title": "RCA | SYD mzone2j7 | Share deletion failure"
+      },
+      {
+        "number": "1238",
+        "title": "RCA | OSA - 2p7 | Observed event for Mount Failed"
+      },
+      {
+        "number": "1202",
+        "title": "RCA | BNPP regional | CIE - Denali shares failing mount"
+      },
+      {
+        "number": "1183",
+        "title": "RCA | DAL2  | Mount Failures in DAL due to Failed to resolve server"
+      },
+      {
+        "number": "918",
+        "title": "RCA | Chennai | Observed Event for Regional share creation failed and Multiple share incidents in Chennai region"
+      },
+      {
+        "number": "892",
+        "title": "RCA | SAO, 2v7 | Synthetic Provisioning: Configure and mount an NFS share on a VPC VSI"
+      },
+      {
+        "number": "878",
+        "title": "RCA | dal stage us-south  | Synthetic Provisioning: Configure and mount an NFS share on a VPC VSI"
+      },
+      {
+        "number": "820",
+        "title": "RCA | SYD | Zonal file share deletion failure"
+      },
+      {
+        "number": "819",
+        "title": "RCA | TOK, SAO, OSA  | Denali Ceph nsf backend de-provision failure"
+      },
+      {
+        "number": "779",
+        "title": "RCA | MON  Share delete failed"
+      },
+      {
+        "number": "500",
+        "title": "RCA | OSA mzone207 | Observed event for Mount Failed"
+      }
+    ]
+  },
+  "statistics": {
+    "Other Issues": 123,
+    "Ceph Health Issues": 116,
+    "Storage Volume Issues": 96,
+    "Snapshot Issues": 75,
+    "Pod/Container Issues": 59,
+    "Backup Issues": 36,
+    "Latency/Performance Issues": 26,
+    "Share/File Storage Issues": 25,
+    "Hydrate/COS Issues": 20,
+    "Cluster Capacity Issues": 17,
+    "Encryption/Security Issues": 16,
+    "Synthetic Provisioning Issues": 13,
+    "Network Issues": 13
+  }
+}
