@@ -99,7 +99,7 @@ A better version would be:
 
 ## Common Ways to Use Bob
 
-## 1. Ask Bob to Explain Code
+### 1. Ask Bob to Explain Code
 
 Use Bob when you want to understand architecture, flow, or implementation details.
 
@@ -112,7 +112,7 @@ Examples:
 
 This is useful for onboarding, debugging, and code reviews.
 
-## 2. Ask Bob to Implement a Change
+### 2. Ask Bob to Implement a Change
 
 Bob can add features, fix defects, and refactor code.
 
@@ -125,7 +125,7 @@ Examples:
 
 For best results, include any expected behavior, constraints, or preferred file locations.
 
-## 3. Ask Bob to Generate Documentation
+### 3. Ask Bob to Generate Documentation
 
 Bob is effective at writing technical guides, setup instructions, and usage docs.
 
@@ -138,7 +138,7 @@ Examples:
 
 If documentation style matters, mention whether you want quick-start, reference, tutorial, or troubleshooting format.
 
-## 4. Ask Bob to Review Changes
+### 4. Ask Bob to Review Changes
 
 Bob can inspect local diffs and identify issues such as:
 
@@ -154,7 +154,7 @@ Example requests:
 - "Check whether my implementation matches the intended issue"
 - "Look for bugs in the recent allocation changes"
 
-## 5. Ask Bob to Run Commands
+### 5. Ask Bob to Run Commands
 
 Bob can execute project commands where appropriate, such as install, test, build, or lint commands.
 
@@ -166,7 +166,7 @@ Examples:
 
 This is especially helpful when debugging setup or CI-related issues.
 
-## 6. Ask Bob to Validate UI Changes
+### 6. Ask Bob to Validate UI Changes
 
 When browser interaction is available, Bob can inspect pages, click through flows, and help verify UI behavior.
 
