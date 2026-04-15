@@ -1,12 +1,12 @@
-import { Response, NextFunction } from 'express';
+import { Response, NextFunction, RequestHandler } from 'express';
 import { AuthRequest } from './auth';
 import prisma from '../config/database';
 
 /**
  * Middleware to log data changes for audit purposes
  */
-export const auditLog = (entityType: string) => {
-  return async (req: AuthRequest, res: Response, next: NextFunction): Promise<void> => {
+export const auditLog = (entityType: string): RequestHandler => {
+  return (async (req: AuthRequest, res: Response, next: NextFunction): Promise<void> => {
     const originalJson = res.json.bind(res);
     const user = req.user;
 
@@ -39,7 +39,7 @@ export const auditLog = (entityType: string) => {
               ipAddress: req.ip || req.socket.remoteAddress || null,
             },
           })
-          .catch((error) => {
+          .catch((error: any) => {
             console.error('Failed to create audit log:', error);
           });
       }
@@ -48,7 +48,7 @@ export const auditLog = (entityType: string) => {
     };
 
     next();
-  };
+  }) as RequestHandler;
 };
 
 function getActionFromMethod(method: string): string {

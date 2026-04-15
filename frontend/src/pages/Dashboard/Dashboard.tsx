@@ -102,10 +102,10 @@ export function Dashboard() {
           </div>
           <div className="space-y-2">
             <p className="text-sm text-gray-600">
-              {conflicts.overAllocated} employees are over-allocated (>100%)
+              {conflicts.overAllocated} employees are over-allocated ({'>'}100%)
             </p>
             <p className="text-sm text-gray-600">
-              {conflicts.underAllocated} employees are under-allocated (<100%)
+              {conflicts.underAllocated} employees are under-allocated ({'<'}100%)
             </p>
             <Link
               to="/allocations"

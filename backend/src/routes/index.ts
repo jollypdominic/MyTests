@@ -1,13 +1,13 @@
 import { Router } from 'express';
-import employeeRoutes from './employeeRoutes';
-import projectRoutes from './projectRoutes';
-import allocationRoutes from './allocationRoutes';
-import authRoutes from './authRoutes';
+import employeeRoutes from './employeeRoutes.js';
+import projectRoutes from './projectRoutes.js';
+import allocationRoutes from './allocationRoutes.js';
+import authRoutes from './authRoutes.js';
 
 const router = Router();
 
 // Health check
-router.get('/health', (req, res) => {
+router.get('/health', (_req, res) => {
   res.json({ 
     status: 'ok', 
     timestamp: new Date().toISOString(),

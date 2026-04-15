@@ -1,5 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { Users, FolderKanban, PieChart, LogOut, Menu } from 'lucide-react';
+import { Users, FolderKanban, PieChart, LogOut } from 'lucide-react';
 import { useAuthStore } from '@/store/authStore';
 import { api } from '@/lib/api';
 
