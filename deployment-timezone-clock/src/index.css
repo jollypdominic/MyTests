@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+@layer components {
+  .clock-card {
+    @apply bg-white rounded-lg shadow-lg p-6 transition-all duration-300 hover:shadow-xl;
+  }
+  
+  .business-hours-badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium;
+  }
+  
+  .business-hours-active {
+    @apply bg-green-100 text-green-800;
+  }
+  
+  .business-hours-inactive {
+    @apply bg-red-100 text-red-800;
+  }
+}
+
+/* Made with Bob */
