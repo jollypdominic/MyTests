@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Attendance Calendar 2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+            background: #f8f9fa;
+            border-bottom: 2px solid #e9ecef;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .month-nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .month-nav button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: all 0.3s;
+        }
+
+        .month-nav button:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+        }
+
+        .month-nav h2 {
+            color: #333;
+            min-width: 200px;
+            text-align: center;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.95em;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .btn-report {
+            background: #28a745;
+            color: white;
+        }
+
+        .btn-report:hover {
+            background: #218838;
+            transform: translateY(-2px);
+        }
+
+        .btn-export {
+            background: #17a2b8;
+            color: white;
+        }
+
+        .btn-export:hover {
+            background: #138496;
+            transform: translateY(-2px);
+        }
+
+        .btn-clear {
+            background: #dc3545;
+            color: white;
+        }
+
+        .btn-clear:hover {
+            background: #c82333;
+            transform: translateY(-2px);
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 20px;
+            padding: 30px;
+        }
+
+        .leads-panel {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 12px;
+            height: fit-content;
+        }
+
+        .leads-panel h3 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.3em;
+        }
+
+        .lead-item {
+            background: white;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .lead-item input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 0.95em;
+        }
+
+        .lead-item label {
+            display: block;
+            margin-bottom: 5px;
+            color: #666;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        .legend {
+            margin-top: 20px;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+        }
+
+        .legend h4 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            font-size: 0.9em;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+
+        .calendar-grid {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .calendar-header {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .day-name {
+            text-align: center;
+            font-weight: bold;
+            color: #667eea;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .calendar-days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+        }
+
+        .day-cell {
+            aspect-ratio: 1;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            background: white;
+        }
+
+        .day-cell:hover {
+            border-color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .day-cell.other-month {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        .day-cell.today {
+            border-color: #ffc107;
+            background: #fff9e6;
+        }
+
+        .day-number {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .attendance-dots {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3px;
+            margin-top: 5px;
+        }
+
+        .dot {
+            width: 100%;
+            height: 8px;
+            border-radius: 2px;
+            background: #e9ecef;
+        }
+
+        .dot.present { background: #28a745; }
+        .dot.sick { background: #ffc107; }
+        .dot.casual { background: #17a2b8; }
+        .dot.vacation { background: #dc3545; }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .modal-header h3 {
+            color: #333;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.5em;
+            cursor: pointer;
+            color: #999;
+        }
+
+        .close-btn:hover {
+            color: #333;
+        }
+
+        .attendance-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1em;
+        }
+
+        .save-btn {
+            background: #667eea;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .save-btn:hover {
+            background: #764ba2;
+        }
+
+        .report-modal .modal-content {
+            max-width: 800px;
+        }
+
+        .report-content {
+            margin-top: 20px;
+        }
+
+        .report-section {
+            margin-bottom: 25px;
+        }
+
+        .report-section h4 {
+            color: #667eea;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .stat-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2em;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        .lead-stats {
+            margin-top: 15px;
+        }
+
+        .lead-stat-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+            gap: 10px;
+            padding: 12px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            margin-bottom: 8px;
+            align-items: center;
+        }
+
+        .lead-stat-row:first-child {
+            background: #667eea;
+            color: white;
+            font-weight: bold;
+        }
+
+        @media (max-width: 1024px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .controls {
+                flex-direction: column;
+            }
+
+            .month-nav {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .action-buttons {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .calendar-days {
+                gap: 5px;
+            }
+
+            .day-cell {
+                padding: 5px;
+                font-size: 0.85em;
+            }
+
+            .attendance-dots {
+                gap: 2px;
+            }
+
+            .dot {
+                height: 6px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📅 Team Attendance Calendar</h1>
+            <p>Track daily attendance for your 4 team leads - Year 2026</p>
+        </div>
+
+        <div class="controls">
+            <div class="month-nav">
+                <button onclick="previousMonth()">← Previous</button>
+                <h2 id="currentMonth">January 2026</h2>
+                <button onclick="nextMonth()">Next →</button>
+            </div>
+            <div class="action-buttons">
+                <button class="btn btn-report" onclick="showReport()">📊 Monthly Report</button>
+                <button class="btn btn-export" onclick="exportData()">💾 Export Data</button>
+                <button class="btn btn-clear" onclick="clearData()">🗑️ Clear All</button>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="leads-panel">
+                <h3>👥 Team Leads</h3>
+                <div class="lead-item">
+                    <label>Lead 1 Name:</label>
+                    <input type="text" id="lead1" placeholder="Enter name" onchange="saveLeadNames()">
+                </div>
+                <div class="lead-item">
+                    <label>Lead 2 Name:</label>
+                    <input type="text" id="lead2" placeholder="Enter name" onchange="saveLeadNames()">
+                </div>
+                <div class="lead-item">
+                    <label>Lead 3 Name:</label>
+                    <input type="text" id="lead3" placeholder="Enter name" onchange="saveLeadNames()">
+                </div>
+                <div class="lead-item">
+                    <label>Lead 4 Name:</label>
+                    <input type="text" id="lead4" placeholder="Enter name" onchange="saveLeadNames()">
+                </div>
+
+                <div class="legend">
+                    <h4>📋 Legend</h4>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #28a745;"></div>
+                        <span>Present</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #ffc107;"></div>
+                        <span>Sick Leave</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #17a2b8;"></div>
+                        <span>Casual Leave</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #dc3545;"></div>
+                        <span>Vacation</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="calendar-grid">
+                <div class="calendar-header">
+                    <div class="day-name">Sun</div>
+                    <div class="day-name">Mon</div>
+                    <div class="day-name">Tue</div>
+                    <div class="day-name">Wed</div>
+                    <div class="day-name">Thu</div>
+                    <div class="day-name">Fri</div>
+                    <div class="day-name">Sat</div>
+                </div>
+                <div class="calendar-days" id="calendarDays"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Attendance Modal -->
+    <div class="modal" id="attendanceModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalDate">Mark Attendance</h3>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="attendance-form" id="attendanceForm"></div>
+        </div>
+    </div>
+
+    <!-- Report Modal -->
+    <div class="modal report-modal" id="reportModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="reportTitle">Monthly Report</h3>
+                <button class="close-btn" onclick="closeReportModal()">&times;</button>
+            </div>
+            <div class="report-content" id="reportContent"></div>
+        </div>
+    </div>
+
+    <script>
+        let currentMonth = 0; // January
+        let currentYear = 2026;
+        let selectedDate = null;
+        let attendanceData = {};
+        let leadNames = {
+            lead1: 'Lead 1',
+            lead2: 'Lead 2',
+            lead3: 'Lead 3',
+            lead4: 'Lead 4'
+        };
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            loadData();
+            loadLeadNames();
+            renderCalendar();
+        });
+
+        function loadData() {
+            const saved = localStorage.getItem('attendanceData');
+            if (saved) {
+                attendanceData = JSON.parse(saved);
+            }
+        }
+
+        function saveData() {
+            localStorage.setItem('attendanceData', JSON.stringify(attendanceData));
+        }
+
+        function loadLeadNames() {
+            const saved = localStorage.getItem('leadNames');
+            if (saved) {
+                leadNames = JSON.parse(saved);
+                document.getElementById('lead1').value = leadNames.lead1;
+                document.getElementById('lead2').value = leadNames.lead2;
+                document.getElementById('lead3').value = leadNames.lead3;
+                document.getElementById('lead4').value = leadNames.lead4;
+            }
+        }
+
+        function saveLeadNames() {
+            leadNames = {
+                lead1: document.getElementById('lead1').value || 'Lead 1',
+                lead2: document.getElementById('lead2').value || 'Lead 2',
+                lead3: document.getElementById('lead3').value || 'Lead 3',
+                lead4: document.getElementById('lead4').value || 'Lead 4'
+            };
+            localStorage.setItem('leadNames', JSON.stringify(leadNames));
+            renderCalendar();
+        }
+
+        function renderCalendar() {
+            const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
+                              'July', 'August', 'September', 'October', 'November', 'December'];
+            
+            document.getElementById('currentMonth').textContent = `${monthNames[currentMonth]} ${currentYear}`;
+
+            const firstDay = new Date(currentYear, currentMonth, 1);
+            const lastDay = new Date(currentYear, currentMonth + 1, 0);
+            const prevLastDay = new Date(currentYear, currentMonth, 0);
+            
+            const firstDayIndex = firstDay.getDay();
+            const lastDayDate = lastDay.getDate();
+            const prevLastDayDate = prevLastDay.getDate();
+
+            const calendarDays = document.getElementById('calendarDays');
+            calendarDays.innerHTML = '';
+
+            const today = new Date();
+            const isCurrentMonth = today.getMonth() === currentMonth && today.getFullYear() === currentYear;
+            const todayDate = today.getDate();
+
+            // Previous month days
+            for (let i = firstDayIndex; i > 0; i--) {
+                const day = prevLastDayDate - i + 1;
+                const cell = createDayCell(day, true, false);
+                calendarDays.appendChild(cell);
+            }
+
+            // Current month days
+            for (let day = 1; day <= lastDayDate; day++) {
+                const isToday = isCurrentMonth && day === todayDate;
+                const cell = createDayCell(day, false, isToday);
+                calendarDays.appendChild(cell);
+            }
+
+            // Next month days
+            const remainingCells = 42 - (firstDayIndex + lastDayDate);
+            for (let day = 1; day <= remainingCells; day++) {
+                const cell = createDayCell(day, true, false);
+                calendarDays.appendChild(cell);
+            }
+        }
+
+        function createDayCell(day, isOtherMonth, isToday) {
+            const cell = document.createElement('div');
+            cell.className = 'day-cell';
+            if (isOtherMonth) cell.classList.add('other-month');
+            if (isToday) cell.classList.add('today');
+
+            const dateKey = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+            
+            cell.innerHTML = `
+                <div class="day-number">${day}</div>
+                <div class="attendance-dots" id="dots-${dateKey}">
+                    <div class="dot" data-lead="lead1"></div>
+                    <div class="dot" data-lead="lead2"></div>
+                    <div class="dot" data-lead="lead3"></div>
+                    <div class="dot" data-lead="lead4"></div>
+                </div>
+            `;
+
+            if (!isOtherMonth) {
+                cell.onclick = () => openAttendanceModal(dateKey);
+                updateDayDots(dateKey);
+            }
+
+            return cell;
+        }
+
+        function updateDayDots(dateKey) {
+            const dotsContainer = document.getElementById(`dots-${dateKey}`);
+            if (!dotsContainer) return;
+
+            const dots = dotsContainer.querySelectorAll('.dot');
+            const dayData = attendanceData[dateKey] || {};
+
+            dots.forEach(dot => {
+                const lead = dot.getAttribute('data-lead');
+                const status = dayData[lead] || 'absent';
+                dot.className = 'dot';
+                if (status !== 'absent') {
+                    dot.classList.add(status);
+                }
+            });
+        }
+
+        function openAttendanceModal(dateKey) {
+            selectedDate = dateKey;
+            const date = new Date(dateKey);
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('modalDate').textContent = date.toLocaleDateString('en-US', options);
+
+            const form = document.getElementById('attendanceForm');
+            form.innerHTML = '';
+
+            const dayData = attendanceData[dateKey] || {};
+
+            ['lead1', 'lead2', 'lead3', 'lead4'].forEach(lead => {
+                const formGroup = document.createElement('div');
+                formGroup.className = 'form-group';
+                formGroup.innerHTML = `
+                    <label>${leadNames[lead]}:</label>
+                    <select id="${lead}-status">
+                        <option value="absent" ${!dayData[lead] || dayData[lead] === 'absent' ? 'selected' : ''}>Absent</option>
+                        <option value="present" ${dayData[lead] === 'present' ? 'selected' : ''}>Present</option>
+                        <option value="sick" ${dayData[lead] === 'sick' ? 'selected' : ''}>Sick Leave</option>
+                        <option value="casual" ${dayData[lead] === 'casual' ? 'selected' : ''}>Casual Leave</option>
+                        <option value="vacation" ${dayData[lead] === 'vacation' ? 'selected' : ''}>Vacation</option>
+                    </select>
+                `;
+                form.appendChild(formGroup);
+            });
+
+            const saveBtn = document.createElement('button');
+            saveBtn.className = 'save-btn';
+            saveBtn.textContent = 'Save Attendance';
+            saveBtn.onclick = saveAttendance;
+            form.appendChild(saveBtn);
+
+            document.getElementById('attendanceModal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('attendanceModal').classList.remove('active');
+        }
+
+        function saveAttendance() {
+            if (!selectedDate) return;
+
+            const dayData = {};
+            ['lead1', 'lead2', 'lead3', 'lead4'].forEach(lead => {
+                const status = document.getElementById(`${lead}-status`).value;
+                dayData[lead] = status;
+            });
+
+            attendanceData[selectedDate] = dayData;
+            saveData();
+            updateDayDots(selectedDate);
+            closeModal();
+        }
+
+        function previousMonth() {
+            currentMonth--;
+            if (currentMonth < 0) {
+                currentMonth = 11;
+                currentYear--;
+            }
+            renderCalendar();
+        }
+
+        function nextMonth() {
+            currentMonth++;
+            if (currentMonth > 11) {
+                currentMonth = 0;
+                currentYear++;
+            }
+            renderCalendar();
+        }
+
+        function showReport() {
+            const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
+                              'July', 'August', 'September', 'October', 'November', 'December'];
+            
+            document.getElementById('reportTitle').textContent = `${monthNames[currentMonth]} ${currentYear} Report`;
+
+            const stats = calculateMonthStats();
+            
+            let html = `
+                <div class="report-section">
+                    <h4>📊 Overall Statistics</h4>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-value">${stats.allPresent}</div>
+                            <div class="stat-label">All Present Days</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">${stats.totalSick}</div>
+                            <div class="stat-label">Total Sick Leaves</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">${stats.totalCasual}</div>
+                            <div class="stat-label">Total Casual Leaves</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">${stats.totalVacation}</div>
+                            <div class="stat-label">Total Vacation Days</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="report-section">
+                    <h4>👥 Individual Lead Statistics</h4>
+                    <div class="lead-stats">
+                        <div class="lead-stat-row">
+                            <div>Lead Name</div>
+                            <div>Present</div>
+                            <div>Sick</div>
+                            <div>Casual</div>
+                            <div>Vacation</div>
+                        </div>
+            `;
+
+            ['lead1', 'lead2', 'lead3', 'lead4'].forEach(lead => {
+                html += `
+                    <div class="lead-stat-row">
+                        <div>${leadNames[lead]}</div>
+                        <div>${stats.leads[lead].present}</div>
+                        <div>${stats.leads[lead].sick}</div>
+                        <div>${stats.leads[lead].casual}</div>
+                        <div>${stats.leads[lead].vacation}</div>
+                    </div>
+                `;
+            });
+
+            html += `
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('reportContent').innerHTML = html;
+            document.getElementById('reportModal').classList.add('active');
+        }
+
+        function calculateMonthStats() {
+            const stats = {
+                allPresent: 0,
+                totalSick: 0,
+                totalCasual: 0,
+                totalVacation: 0,
+                leads: {
+                    lead1: { present: 0, sick: 0, casual: 0, vacation: 0 },
+                    lead2: { present: 0, sick: 0, casual: 0, vacation: 0 },
+                    lead3: { present: 0, sick: 0, casual: 0, vacation: 0 },
+                    lead4: { present: 0, sick: 0, casual: 0, vacation: 0 }
+                }
+            };
+
+            const lastDay = new Date(currentYear, currentMonth + 1, 0).getDate();
+
+            for (let day = 1; day <= lastDay; day++) {
+                const dateKey = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+                const dayData = attendanceData[dateKey];
+
+                if (dayData) {
+                    let allPresent = true;
+                    ['lead1', 'lead2', 'lead3', 'lead4'].forEach(lead => {
+                        const status = dayData[lead];
+                        if (status === 'present') {
+                            stats.leads[lead].present++;
+                        } else if (status === 'sick') {
+                            stats.leads[lead].sick++;
+                            stats.totalSick++;
+                            allPresent = false;
+                        } else if (status === 'casual') {
+                            stats.leads[lead].casual++;
+                            stats.totalCasual++;
+                            allPresent = false;
+                        } else if (status === 'vacation') {
+                            stats.leads[lead].vacation++;
+                            stats.totalVacation++;
+                            allPresent = false;
+                        } else {
+                            allPresent = false;
+                        }
+                    });
+
+                    if (allPresent) {
+                        stats.allPresent++;
+                    }
+                }
+            }
+
+            return stats;
+        }
+
+        function closeReportModal() {
+            document.getElementById('reportModal').classList.remove('active');
+        }
+
+        function exportData() {
+            const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
+                              'July', 'August', 'September', 'October', 'November', 'December'];
+            
+            let csv = `Team Attendance Report - ${monthNames[currentMonth]} ${currentYear}\n\n`;
+            csv += `Date,${leadNames.lead1},${leadNames.lead2},${leadNames.lead3},${leadNames.lead4}\n`;
+
+            const lastDay = new Date(currentYear, currentMonth + 1, 0).getDate();
+
+            for (let day = 1; day <= lastDay; day++) {
+                const dateKey = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+                const dayData = attendanceData[dateKey] || {};
+                
+                const date = new Date(dateKey);
+                const dateStr = date.toLocaleDateString('en-US');
+                
+                csv += `${dateStr},`;
+                csv += `${dayData.lead1 || 'absent'},`;
+                csv += `${dayData.lead2 || 'absent'},`;
+                csv += `${dayData.lead3 || 'absent'},`;
+                csv += `${dayData.lead4 || 'absent'}\n`;
+            }
+
+            const stats = calculateMonthStats();
+            csv += `\nSummary Statistics\n`;
+            csv += `Days All Present,${stats.allPresent}\n`;
+            csv += `Total Sick Leaves,${stats.totalSick}\n`;
+            csv += `Total Casual Leaves,${stats.totalCasual}\n`;
+            csv += `Total Vacation Days,${stats.totalVacation}\n\n`;
+            
+            csv += `Individual Statistics\n`;
+            csv += `Lead,Present,Sick,Casual,Vacation\n`;
+            ['lead1', 'lead2', 'lead3', 'lead4'].forEach(lead => {
+                csv += `${leadNames[lead]},${stats.leads[lead].present},${stats.leads[lead].sick},${stats.leads[lead].casual},${stats.leads[lead].vacation}\n`;
+            });
+
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `attendance-${monthNames[currentMonth]}-${currentYear}.csv`;
+            a.click();
+            window.URL.revokeObjectURL(url);
+        }
+
+        function clearData() {
+            if (confirm('Are you sure you want to clear all attendance data? This cannot be undone!')) {
+                attendanceData = {};
+                saveData();
+                renderCalendar();
+                alert('All attendance data has been cleared.');
+            }
+        }
+    </script>
+</body>
+</html>
